@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppChatButton from './components/WhatsAppChatButton';
 import './index.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <WhatsAppChatButton />
       </div>
     </Router>
   );
