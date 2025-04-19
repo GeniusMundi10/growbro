@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WHATSAPP_NUMBER = '15556415118'; // International format, no + or spaces
-const PREFILL_MESSAGE = encodeURIComponent('👋 Hi! Welcome to growbro.ai. How can we help you today?');
-const CHAT_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${PREFILL_MESSAGE}`;
+const CHAT_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export default function WhatsAppChatButton() {
   const [showText, setShowText] = useState(true);

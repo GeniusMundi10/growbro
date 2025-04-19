@@ -61,6 +61,20 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Premium Video Section - Plivo Style */}
+      <section className="promo-video-section">
+        <div className="promo-video-wrapper">
+          <iframe
+            src="https://player.vimeo.com/video/1076991274?autoplay=0&title=0&byline=0&portrait=0"
+            title="Growbro WhatsApp AI Demo Video"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="promo-video-iframe"
+          ></iframe>
+        </div>
+      </section>
+
       {/* Features Overview Section */}
       <section className="section" style={{ background: 'linear-gradient(90deg, #f0fdf4 0%, #fff 100%)' }}>
         <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '2.5rem' }}>
