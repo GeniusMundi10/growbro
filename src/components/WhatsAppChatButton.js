@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WHATSAPP_NUMBER = '15556415118'; // International format, no + or spaces
@@ -10,6 +10,7 @@ export default function WhatsAppChatButton() {
   const [pulse, setPulse] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const hideTextTimeout = useRef();
 
   // Detect mobile device for hover behavior
   useEffect(() => {
@@ -21,13 +22,13 @@ export default function WhatsAppChatButton() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Show text initially, then switch to icon after 2.5s
+  // Show text initially, then switch to icon after 2.5s (on both desktop and mobile)
   useEffect(() => {
-    if (!hovered && !isMobile) {
-      const timer = setTimeout(() => setShowText(false), 2500);
-      return () => clearTimeout(timer);
+    if (!hovered) {
+      hideTextTimeout.current = setTimeout(() => setShowText(false), 2500);
+      return () => clearTimeout(hideTextTimeout.current);
     }
-  }, [hovered, isMobile]);
+  }, [hovered]);
 
   // Pulse effect
   useEffect(() => {
@@ -38,11 +39,31 @@ export default function WhatsAppChatButton() {
     return () => clearInterval(pulseInterval);
   }, []);
 
-  // On mobile, always show icon; tap shows text for 2.5s
-  const handleMobileClick = () => {
-    if (isMobile && !showText) {
+  // On mobile, tap shows text for 2.5s, then hides again
+  const handleMobileClick = (e) => {
+    if (isMobile) {
+      e.preventDefault(); // Prevent immediate navigation
       setShowText(true);
-      setTimeout(() => setShowText(false), 2500);
+      clearTimeout(hideTextTimeout.current);
+      hideTextTimeout.current = setTimeout(() => {
+        setShowText(false);
+        window.open(CHAT_LINK, '_blank', 'noopener,noreferrer');
+      }, 2500);
+    }
+  };
+
+  // On desktop, hover shows text; mouse leave hides after hover
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      setHovered(true);
+      setShowText(true);
+      clearTimeout(hideTextTimeout.current);
+    }
+  };
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setHovered(false);
+      hideTextTimeout.current = setTimeout(() => setShowText(false), 2500);
     }
   };
 
@@ -53,8 +74,8 @@ export default function WhatsAppChatButton() {
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
       className="whatsapp-chat-btn"
-      onMouseEnter={() => !isMobile && (setHovered(true), setShowText(true))}
-      onMouseLeave={() => !isMobile && (setHovered(false), setShowText(false))}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleMobileClick}
     >
       <motion.div
