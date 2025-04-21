@@ -1204,3 +1204,87 @@ code {
     margin-bottom: 1.5rem;
   }
 }
+
+/* --- About Section Modern SaaS Styles --- */
+.about-section {
+  padding: 4.5rem 1rem 3rem 1rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  background: linear-gradient(90deg, #f0fdf4 0%, #fff 100%);
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px rgba(36,181,98,0.07);
+  text-align: center;
+}
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  gap: 0.5rem;
+}
+.about-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #1a2e22;
+  margin-bottom: 0.1rem;
+  letter-spacing: -0.01em;
+}
+.about-tagline {
+  color: #219150;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+.about-content {
+  font-size: 1.09rem;
+  color: #3d3d3d;
+  margin-bottom: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+.about-content b {
+  color: #219150;
+}
+.about-values {
+  display: flex;
+  justify-content: center;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+.about-value-card {
+  background: #f8fefb;
+  border-radius: 1.3rem;
+  box-shadow: 0 2px 12px rgba(36,181,98,0.07);
+  padding: 1.1rem 1.7rem 1.1rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 110px;
+  margin-bottom: 0.2rem;
+  border: 1.5px solid #e6f9ee;
+}
+.about-value-icon {
+  font-size: 1.7rem;
+  margin-bottom: 0.3rem;
+}
+.about-value-title {
+  color: #219150;
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+@media (max-width: 900px) {
+  .about-section {
+    padding: 2.2rem 0.5rem 1.5rem 0.5rem;
+    border-radius: 1.2rem;
+  }
+  .about-values {
+    gap: 0.7rem;
+  }
+  .about-value-card {
+    padding: 0.8rem 1.1rem 0.8rem 1.1rem;
+    min-width: 90px;
+  }
+}
