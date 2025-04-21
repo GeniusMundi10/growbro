@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { motion } from 'framer-motion';
 
 const initialValues = {
   name: '',
@@ -16,45 +17,99 @@ const validationSchema = Yup.object({
 
 export default function Contact() {
   return (
-    <section className="py-16 px-4 max-w-xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900 dark:text-white">
-        Contact Us / Request Demo
-      </h2>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          alert('Thank you! We will contact you soon.');
-          resetForm();
-        }}
+    <section className="contact-section">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="contact-hero"
       >
-        {({ isSubmitting }) => (
-          <Form className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 border border-gray-100 dark:border-gray-800 flex flex-col gap-4">
-            <div>
-              <label htmlFor="name" className="block mb-1 font-semibold text-gray-700 dark:text-gray-200">Name</label>
-              <Field name="name" className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
-              <ErrorMessage name="name" component="div" className="text-red-500 text-sm mt-1" />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-1 font-semibold text-gray-700 dark:text-gray-200">Email</label>
-              <Field name="email" type="email" className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
-              <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
-            </div>
-            <div>
-              <label htmlFor="message" className="block mb-1 font-semibold text-gray-700 dark:text-gray-200">Message</label>
-              <Field as="textarea" name="message" rows="4" className="w-full px-4 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
-              <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
-            </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold shadow transition-colors mt-2 disabled:opacity-70"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </Form>
-        )}
-      </Formik>
+        <div className="contact-emoji">🚀</div>
+        <h2 className="contact-title">
+          Let’s Grow Together!
+        </h2>
+        <p className="contact-subtitle">
+          Book a demo, ask a question, or just say hi — we reply fast!
+        </p>
+      </motion.div>
+      <div className="contact-flex">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="contact-options"
+        >
+          <a
+            href="https://wa.me/919312639676"
+            className="contact-btn whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="contact-btn-icon">🟢</span> Chat on WhatsApp
+          </a>
+          <a
+            href="mailto:mundigenius@gmail.com"
+            className="contact-btn email"
+          >
+            <span className="contact-btn-icon">✉️</span> Email Us
+          </a>
+          <a
+            href="tel:+919312639676"
+            className="contact-btn phone"
+          >
+            <span className="contact-btn-icon">📞</span> Call Us
+          </a>
+          <div className="contact-badges">
+            <span className="contact-badge">Meta Business Partner</span>
+            <span className="contact-badge">Data Secure</span>
+            <span className="contact-badge">Trusted by 100+ Indian brands</span>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="contact-form-wrapper"
+        >
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values, { resetForm }) => {
+              alert('Thank you! We will contact you soon.');
+              resetForm();
+            }}
+          >
+            {({ isSubmitting }) => (
+              <Form className="contact-form">
+                <div>
+                  <label htmlFor="name" className="contact-label">Name</label>
+                  <Field name="name" className="contact-input" />
+                  <ErrorMessage name="name" component="div" className="contact-error" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="contact-label">Email</label>
+                  <Field name="email" type="email" className="contact-input" />
+                  <ErrorMessage name="email" component="div" className="contact-error" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="contact-label">Message</label>
+                  <Field as="textarea" name="message" rows="4" className="contact-input" />
+                  <ErrorMessage name="message" component="div" className="contact-error" />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="contact-submit"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </motion.div>
+      </div>
     </section>
   );
 }

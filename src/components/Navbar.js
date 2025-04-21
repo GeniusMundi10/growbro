@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import AnimatedLogoSprout from './AnimatedLogoSprout';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -17,8 +18,10 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="logo">
-          <span className="logo-green">growbro</span><span className="logo-dark">.ai</span>
+        <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+          <AnimatedLogoSprout size={38} />
+          <span className="logo-green" style={{ fontWeight: 800, fontSize: '1.3rem', letterSpacing: '-0.5px' }}>growbro</span>
+          <span className="logo-dark" style={{ fontWeight: 700, fontSize: '1.3rem', letterSpacing: '-0.5px' }}>.ai</span>
         </Link>
         {/* Hamburger button for mobile */}
         <button
