@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import WhatsAppChatPopup from './WhatsAppChatPopup';
 
 const WHATSAPP_NUMBER = '15556415118'; // International format, no + or spaces
 const CHAT_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -9,6 +10,7 @@ export default function WhatsAppChatButton() {
   const [pulse, setPulse] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
   const hideTextTimeout = useRef();
 
   // Detect mobile device for hover behavior
@@ -38,17 +40,10 @@ export default function WhatsAppChatButton() {
     return () => clearInterval(pulseInterval);
   }, []);
 
-  // On mobile, tap shows text for 2.5s, then hides again
-  const handleMobileClick = (e) => {
-    if (isMobile) {
-      e.preventDefault(); // Prevent immediate navigation
-      setShowText(true);
-      clearTimeout(hideTextTimeout.current);
-      hideTextTimeout.current = setTimeout(() => {
-        setShowText(false);
-        window.open(CHAT_LINK, '_blank', 'noopener,noreferrer');
-      }, 2500);
-    }
+  // Open popup instead of direct WhatsApp link
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    setPopupOpen(true);
   };
 
   // On desktop, hover shows text; mouse leave hides after hover
@@ -67,53 +62,56 @@ export default function WhatsAppChatButton() {
   };
 
   return (
-    <a
-      href={CHAT_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
-      className="whatsapp-chat-btn"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleMobileClick}
-    >
-      <motion.div
-        className={`wa-btn-inner${pulse ? ' pulse' : ''}`}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 22, delay: 1.2 }}
-        whileHover={!isMobile ? { scale: 1.18 } : {}}
+    <>
+      <a
+        href={CHAT_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="whatsapp-chat-btn"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleButtonClick}
       >
-        <AnimatePresence mode="wait">
-          {showText ? (
-            <motion.div
-              key="text"
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -25 }}
-              transition={{ duration: 0.5 }}
-              className="wa-btn-text"
-            >
-              <span className="wa-bubble wa-bubble-big">
+        <motion.div
+          className={`wa-btn-inner${pulse ? ' pulse' : ''}`}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 22, delay: 1.2 }}
+          whileHover={!isMobile ? { scale: 1.18 } : {}}
+        >
+          <AnimatePresence mode="wait">
+            {showText ? (
+              <motion.div
+                key="text"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -25 }}
+                transition={{ duration: 0.5 }}
+                className="wa-btn-text"
+              >
+                <span className="wa-bubble wa-bubble-big">
+                  <WhatsAppIcon big />
+                </span>
+                <span className="wa-label">Chat with us</span>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="icon"
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1.35 }}
+                exit={{ opacity: 0, scale: 0.7 }}
+                transition={{ duration: 0.5 }}
+                className="wa-btn-icon"
+              >
                 <WhatsAppIcon big />
-              </span>
-              <span className="wa-label">Chat with us</span>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="icon"
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={{ opacity: 1, scale: 1.35 }}
-              exit={{ opacity: 0, scale: 0.7 }}
-              transition={{ duration: 0.5 }}
-              className="wa-btn-icon"
-            >
-              <WhatsAppIcon big />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </a>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </a>
+      <WhatsAppChatPopup isOpen={popupOpen} onClose={() => setPopupOpen(false)} phoneNumber={WHATSAPP_NUMBER} />
+    </>
   );
 }
 
