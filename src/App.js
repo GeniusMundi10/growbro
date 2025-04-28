@@ -6,6 +6,8 @@ import HowItWorks from './pages/HowItWorks';
 import Pricing from './pages/Pricing';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PremiumBlog from './pages/PremiumBlog';
+import PremiumBlogPost from './pages/PremiumBlogPost';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppChatButton from './components/WhatsAppChatButton';
@@ -24,6 +26,8 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<PremiumBlog />} />
+            <Route path="/blog/:slug" element={<PremiumBlogPost />} />
           </Routes>
         </main>
         <Footer />
