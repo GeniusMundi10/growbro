@@ -1,0 +1,44 @@
+<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Retail Icon -->
+  <g transform="translate(0, 0)">
+    <circle cx="40" cy="40" r="40" fill="#16a34a" fill-opacity="0.1"/>
+    <!-- Shopping Bag -->
+    <path d="M20 30 H60 L55 60 H25 L20 30Z" fill="white" stroke="#16a34a" stroke-width="2"/>
+    <path d="M30 30 V20 C30 15, 35 10, 40 10 C45 10, 50 15, 50 20 V30" stroke="#16a34a" stroke-width="2" fill="none"/>
+    <!-- Price Tag -->
+    <rect x="35" y="35" width="10" height="15" rx="2" fill="#16a34a" transform="rotate(-10 35 35)"/>
+    <circle cx="38" cy="40" r="2" fill="white"/>
+  </g>
+  
+  <!-- Travel Icon -->
+  <g transform="translate(80, 0)">
+    <circle cx="40" cy="40" r="40" fill="#16a34a" fill-opacity="0.1"/>
+    <!-- Airplane -->
+    <path d="M55 40 L70 30 L70 25 L55 35 L30 25 L20 25 L30 40 L20 55 L30 55 L40 40 L55 40Z" fill="#16a34a"/>
+    <!-- Globe Lines -->
+    <circle cx="40" cy="40" r="20" stroke="#16a34a" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+    <ellipse cx="40" cy="40" rx="15" ry="20" stroke="#16a34a" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+    <line x1="20" y1="40" x2="60" y2="40" stroke="#16a34a" stroke-width="1.5" stroke-opacity="0.6"/>
+    <line x1="40" y1="20" x2="40" y2="60" stroke="#16a34a" stroke-width="1.5" stroke-opacity="0.6"/>
+  </g>
+  
+  <!-- Finance Icon -->
+  <g transform="translate(160, 0)">
+    <circle cx="40" cy="40" r="40" fill="#16a34a" fill-opacity="0.1"/>
+    <!-- Money/Finance -->
+    <circle cx="40" cy="40" r="20" fill="#16a34a"/>
+    <text x="40" y="45" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">$</text>
+    <!-- Growth Chart -->
+    <polyline points="15,55 25,45 35,50 45,35 55,25 65,15" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Healthcare Icon -->
+  <g transform="translate(240, 0)">
+    <circle cx="40" cy="40" r="40" fill="#16a34a" fill-opacity="0.1"/>
+    <!-- Medical Cross -->
+    <rect x="30" y="20" width="20" height="40" rx="3" fill="#16a34a"/>
+    <rect x="20" y="30" width="40" height="20" rx="3" fill="#16a34a"/>
+    <!-- Heart Rate Line -->
+    <polyline points="15,40 25,40 30,25 35,55 40,35 45,45 55,45 65,45" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg> 

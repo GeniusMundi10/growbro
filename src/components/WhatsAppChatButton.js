@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import WhatsAppChatPopup from './WhatsAppChatPopup';
 
-const WHATSAPP_NUMBER = '15556415118'; // International format, no + or spaces
+const WHATSAPP_NUMBER = '919312639676'; // International format, no + or spaces
 const CHAT_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export default function WhatsAppChatButton() {

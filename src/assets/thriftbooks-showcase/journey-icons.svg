@@ -1,0 +1,51 @@
+<svg width="400" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Discovery Icon -->
+  <g transform="translate(0, 0)">
+    <circle cx="40" cy="40" r="36" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-width="2"/>
+    <!-- Magnifying Glass -->
+    <circle cx="35" cy="35" r="15" stroke="#16a34a" stroke-width="3" fill="none"/>
+    <line x1="46" y1="46" x2="55" y2="55" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Preference Gathering Icon -->
+  <g transform="translate(80, 0)">
+    <circle cx="40" cy="40" r="36" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-width="2"/>
+    <!-- Checklist / Preferences -->
+    <rect x="25" y="25" width="30" height="30" rx="2" fill="white" stroke="#16a34a" stroke-width="2"/>
+    <line x1="30" y1="35" x2="50" y2="35" stroke="#16a34a" stroke-width="2"/>
+    <line x1="30" y1="45" x2="50" y2="45" stroke="#16a34a" stroke-width="2"/>
+    <line x1="30" y1="55" x2="40" y2="55" stroke="#16a34a" stroke-width="2"/>
+  </g>
+  
+  <!-- Personalized Recommendations Icon -->
+  <g transform="translate(160, 0)">
+    <circle cx="40" cy="40" r="36" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-width="2"/>
+    <!-- Books with Star -->
+    <rect x="25" y="50" width="10" height="15" rx="1" fill="#16a34a" transform="rotate(-10 25 50)"/>
+    <rect x="35" y="45" width="10" height="15" rx="1" fill="#16a34a"/>
+    <rect x="45" y="50" width="10" height="15" rx="1" fill="#16a34a" transform="rotate(10 45 50)"/>
+    <path d="M40 20 L42.5 27.5 L50 27.5 L44 32.5 L46.5 40 L40 35 L33.5 40 L36 32.5 L30 27.5 L37.5 27.5 L40 20Z" fill="#16a34a"/>
+  </g>
+  
+  <!-- Purchase Decision Icon -->
+  <g transform="translate(240, 0)">
+    <circle cx="40" cy="40" r="36" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-width="2"/>
+    <!-- Shopping Cart -->
+    <circle cx="30" cy="55" r="4" fill="#16a34a"/>
+    <circle cx="50" cy="55" r="4" fill="#16a34a"/>
+    <path d="M20 25 H25 L32 50 H50 L55 35 H35" stroke="#16a34a" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+    <!-- Checkmark -->
+    <circle cx="50" cy="25" r="10" fill="#86efac"/>
+    <path d="M45 25 L50 30 L55 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Post-Purchase Experience Icon -->
+  <g transform="translate(320, 0)">
+    <circle cx="40" cy="40" r="36" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-width="2"/>
+    <!-- Package with Hearts -->
+    <rect x="25" y="30" width="30" height="25" rx="2" fill="#16a34a"/>
+    <path d="M25 35 L40 45 L55 35" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 25 C33 25, 30 25, 30 28 C30 31, 35 35, 35 35 C35 35, 40 31, 40 28 C40 25, 37 25, 37 25 C35 25, 35 27, 35 27 C35 27, 35 25, 33 25Z" fill="#86efac"/>
+    <path d="M48 25 C48 25, 45 25, 45 28 C45 31, 50 35, 50 35 C50 35, 55 31, 55 28 C55 25, 52 25, 52 25 C50 25, 50 27, 50 27 C50 27, 50 25, 48 25Z" fill="#86efac"/>
+  </g>
+</svg> 
