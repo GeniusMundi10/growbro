@@ -25,7 +25,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.7 }}
             style={{ fontSize: '3.2rem', fontWeight: 900, lineHeight: 1.15, letterSpacing: '-0.03em', maxWidth: 900, margin: '0 auto', whiteSpace: 'pre-line', wordBreak: 'break-word' }}
           >
-            Let WhatsApp AI Agents handle your customer chats{`\n`}24/7
+            Let AI Agents handle your customer chats 24/7
           </motion.h1>
           <motion.p
             className="hero-subtitle"
