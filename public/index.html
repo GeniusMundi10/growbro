@@ -16,24 +16,7 @@
     <meta name="description" content="growbro.ai empowers Indian businesses with modern AI automation and customer engagement solutions. Unlock growth with premium, secure, and easy-to-use AI." />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="stylesheet" href="https://corgi-central-violently.ngrok-free.app/assets/index-Bpn4FL6N.css">
-    <!-- Custom styles to move chatbot popup to bottom left -->
-    <!-- <style>
-      /* Move chatbot popup to bottom left */
-      .GeeBee-chatContainer {
-        right: auto !important;
-        left: 20px !important;
-      }
-      
-      /* Also move the button if it's separate */
-      .GeeBee-chatButton {
-        right: auto !important;
-        left: 20px !important;
-      }
-    </style> -->
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -54,9 +37,6 @@
     <meta name="twitter:description" content="Empowering Indian businesses with modern AI automation and customer engagement. Unlock growth with premium, secure, and easy-to-use AI." />
     <meta name="twitter:image" content="%PUBLIC_URL%/og-image.png" />
     
-    <!-- GeeBee Chatbot Widget -->
-    <link rel="stylesheet" href="https://cdn.geebee.ai/widget/v1.0.0/geebee.min.css">
-    <script src="https://cdn.geebee.ai/widget/v1.0.0/geebee.min.js"></script>
     
     <!-- Three.js for 3D effects -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
@@ -70,15 +50,9 @@
     <!-- Custom stylesheet for NextGenAIHero -->
     <link rel="stylesheet" href="%PUBLIC_URL%/styles/nextGenAIHero.css">
     
-    <style>
-      /* Custom CSS for the GeeBee Chatbot */
-      .chat-bubble {
-        background-color: #16a34a !important;
-      }
-      .chat-window {
-        bottom: 80px !important;
-      }
-    </style>
+    <!-- Growbro Chatbox Widget
+    <link rel="stylesheet" href="https://corgi-central-violently.ngrok-free.app/assets/index-Bpn4FL6N.css" /> -->
+    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -93,22 +67,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- <script src="https://corgi-central-violently.ngrok-free.app/assets/index-OPJ_rIz9.js"></script> -->
+    
+    <!-- Growbro Chatbox Widget Script -->
     <script src="https://corgi-central-violently.ngrok-free.app/assets/index-OPJ_rIz9.js"></script>
     
-    <!-- Initialize GeeBee Chatbot Widget -->
-    <script>
-      window.addEventListener('load', function() {
-        window.GeeBee.initialize({
-          botId: "YOUR_BOT_ID_HERE",
-          apiKey: "YOUR_API_KEY_HERE",
-          title: "GrowBro AI Assistant",
-          subtitle: "Ask me anything about our AI chatbots!",
-          primaryColor: "#16a34a",
-          position: "right",
-          welcomeMessage: "👋 Hi there! I'm the GrowBro AI Assistant. How can I help you today?",
-          messageDelay: 1000
-        });
-      });
-    </script>
   </body>
 </html>
