@@ -849,6 +849,7 @@
 @media (max-width: 768px) {
   .premium-hero {
     padding: 4rem 1rem 6rem;
+    min-height: auto;
   }
   
   .hero-headline {
@@ -882,6 +883,7 @@
 @media (max-width: 576px) {
   .premium-hero {
     padding: 3rem 0.5rem 5rem;
+    min-height: auto;
   }
   
   .hero-headline {
@@ -894,7 +896,23 @@
   }
   
   .interface-wrapper {
-    transform: scale(0.75);
+    transform: scale(0.7);
+    margin: -20px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .whatsapp-interface, .website-interface {
+    transform: none !important;
+  }
+  
+  .phone-frame, .browser-frame {
+    max-width: 100%;
+    height: auto;
+    transform: none !important;
   }
   
   .text-content {
@@ -904,11 +922,6 @@
   .cta-button {
     padding: 0.8rem 1.8rem;
     font-size: 1.1rem;
-  }
-  
-  .phone-frame, .browser-frame {
-    max-width: 100%;
-    height: auto;
   }
 }
 

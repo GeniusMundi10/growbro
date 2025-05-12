@@ -371,7 +371,7 @@ const PremiumHero = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <Link to="/signin" className="cta-button">
+            <Link to="/contact" className="cta-button">
               Try Demo
             </Link>
           </motion.div>
