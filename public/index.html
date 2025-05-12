@@ -53,6 +53,32 @@
     <meta name="twitter:title" content="growbro.ai – AI for Business Growth" />
     <meta name="twitter:description" content="Empowering Indian businesses with modern AI automation and customer engagement. Unlock growth with premium, secure, and easy-to-use AI." />
     <meta name="twitter:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <!-- GeeBee Chatbot Widget -->
+    <link rel="stylesheet" href="https://cdn.geebee.ai/widget/v1.0.0/geebee.min.css">
+    <script src="https://cdn.geebee.ai/widget/v1.0.0/geebee.min.js"></script>
+    
+    <!-- Three.js for 3D effects -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    
+    <!-- JetBrains Mono font for code snippets -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom stylesheet for NextGenAIHero -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles/nextGenAIHero.css">
+    
+    <style>
+      /* Custom CSS for the GeeBee Chatbot */
+      .chat-bubble {
+        background-color: #16a34a !important;
+      }
+      .chat-window {
+        bottom: 80px !important;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -68,5 +94,21 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script src="https://corgi-central-violently.ngrok-free.app/assets/index-OPJ_rIz9.js"></script>
+    
+    <!-- Initialize GeeBee Chatbot Widget -->
+    <script>
+      window.addEventListener('load', function() {
+        window.GeeBee.initialize({
+          botId: "YOUR_BOT_ID_HERE",
+          apiKey: "YOUR_API_KEY_HERE",
+          title: "GrowBro AI Assistant",
+          subtitle: "Ask me anything about our AI chatbots!",
+          primaryColor: "#16a34a",
+          position: "right",
+          welcomeMessage: "👋 Hi there! I'm the GrowBro AI Assistant. How can I help you today?",
+          messageDelay: 1000
+        });
+      });
+    </script>
   </body>
 </html>

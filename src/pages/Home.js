@@ -1,65 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import HeroSVG from '../components/HeroSVG';
 import FeatureIconBot from '../components/FeatureIconBot';
 import FeatureIconChat from '../components/FeatureIconChat';
 import FeatureIconAnalytics from '../components/FeatureIconAnalytics';
 import FeatureIconGlobe from '../components/FeatureIconGlobe';
 import FeatureIconShield from '../components/FeatureIconShield';
+import PremiumHero from '../components/PremiumHero';
 
 export default function Home() {
   return (
     <>
-      {/* Animated Hero Section */}
-      <section className="hero-section">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="hero-title"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            style={{ fontSize: '3.2rem', fontWeight: 900, lineHeight: 1.15, letterSpacing: '-0.03em', maxWidth: 900, margin: '0 auto', whiteSpace: 'pre-line', wordBreak: 'break-word' }}
-          >
-            Let AI Agents handle your customer chats 24/7
-          </motion.h1>
-          <motion.p
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            style={{ fontSize: '1.6rem', maxWidth: 700, margin: '1.5rem auto 0 auto', fontWeight: 500, lineHeight: 1.5, letterSpacing: '-0.01em', color: '#374151' }}
-          >
-            Autonomous agents that answer purchase inquiries, close new sales, engage loyal customers & resolve support queries instantly.
-          </motion.p>
-          <motion.div
-            className="button-container"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            <Link to="/contact" className="button-primary" style={{ fontSize: '1.25rem', padding: '1rem 2.5rem', fontWeight: 700 }}>
-              Request Demo
-            </Link>
-            <Link to="/pricing" className="button-secondary" style={{ fontSize: '1.25rem', padding: '1rem 2.5rem', fontWeight: 700 }}>
-              Get Volume Pricing
-            </Link>
-          </motion.div>
-        </motion.div>
-        {/* Animated SVG Illustration */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          style={{ marginTop: '2.5rem' }}
-        >
-          <HeroSVG />
-        </motion.div>
-      </section>
+      {/* Premium Hero Section */}
+      <PremiumHero />
 
       {/* Premium Video Section - Plivo Style */}
       <section className="promo-video-section">
@@ -78,7 +31,7 @@ export default function Home() {
       {/* Features Overview Section */}
       <section className="section" style={{ background: 'linear-gradient(90deg, #f0fdf4 0%, #fff 100%)' }}>
         <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '2.5rem' }}>
-          Everything You Need to Scale Customer Engagement on WhatsApp
+          AI Chatbot Solutions for Every Platform
         </h2>
         <div className="card-grid">
           {features.map((feature, idx) => (
@@ -102,7 +55,7 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="section">
         <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '2.2rem' }}>
-          Power Your WhatsApp Strategy with Speed, Compliance, and Expertise
+          Power Your Omnichannel Strategy with Speed, Compliance, and Expertise
         </h2>
         <div className="card-grid">
           {whyChooseUs.map((item, idx) => (
@@ -133,7 +86,7 @@ export default function Home() {
           transition={{ delay: 0.2, duration: 0.7 }}
           style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '1.5rem' }}
         >
-          Launch Your WhatsApp AI Agents Today
+          Launch Your AI Chatbots Today
         </motion.h2>
         <motion.div
           className="button-container"
