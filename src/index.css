@@ -2582,3 +2582,23 @@ code {
     flex: 1 0 100%;
   }
 }
+
+.navbar-dashboard-btn {
+  display: block;
+  background: #f0fdf4;
+  border: none;
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 1.07rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  text-align: left;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+}
+.navbar-dashboard-btn:hover {
+  background: #dcfce7;
+  color: #15803d;
+}

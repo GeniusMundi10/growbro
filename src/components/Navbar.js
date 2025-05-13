@@ -294,6 +294,15 @@ export default function Navbar() {
               
               {userDropdownOpen && (
                 <div className="navbar-user-dropdown">
+                  <a
+                    href="https://crm.growbro.ai/"
+                    className="navbar-dashboard-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    Dashboard
+                  </a>
                   <button
                     className="navbar-signout-btn"
                     tabIndex={0}
