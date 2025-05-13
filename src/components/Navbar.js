@@ -64,6 +64,14 @@ export default function Navbar() {
     setUserDropdownOpen(false);
   };
 
+  // Open CRM dashboard
+  const openCrmDashboard = () => {
+    // Using both methods for maximum compatibility
+    window.location.href = 'https://crm.growbro.ai/';
+    // Backup method
+    window.open('https://crm.growbro.ai/', '_self');
+  };
+
   // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(e) {
@@ -276,7 +284,8 @@ export default function Navbar() {
               tabIndex={0} 
               onClick={() => setUserDropdownOpen(!userDropdownOpen)} 
               onBlur={e => {
-                if (!e.relatedTarget || !e.relatedTarget.classList.contains('navbar-signout-btn')) {
+                // Only close if focus moves outside the dropdown entirely
+                if (!e.currentTarget.contains(e.relatedTarget)) {
                   setUserDropdownOpen(false);
                 }
               }}
@@ -294,19 +303,15 @@ export default function Navbar() {
               
               {userDropdownOpen && (
                 <div className="navbar-user-dropdown">
-                  <a
-                    href="https://crm.growbro.ai/"
+                  <button
                     className="navbar-dashboard-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     onClick={e => {
                       e.stopPropagation();
-                      window.open('https://crm.growbro.ai/', '_blank', 'noopener,noreferrer');
-                      return false;
+                      openCrmDashboard();
                     }}
                   >
                     Dashboard
-                  </a>
+                  </button>
                   <button
                     className="navbar-signout-btn"
                     tabIndex={0}

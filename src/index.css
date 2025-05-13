@@ -1572,8 +1572,9 @@ code {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  z-index: 1001;
+  z-index: 9999;
   animation: fadeInScale 0.22s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: auto;
 }
 .navbar-signout-btn {
   background: none;
@@ -2597,6 +2598,10 @@ code {
   text-align: left;
   text-decoration: none;
   margin-bottom: 0.3rem;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10000;
+  width: 100%;
 }
 .navbar-dashboard-btn:hover {
   background: #dcfce7;
