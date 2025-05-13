@@ -299,7 +299,11 @@ export default function Navbar() {
                     className="navbar-dashboard-btn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={e => e.stopPropagation()}
+                    onClick={e => {
+                      e.stopPropagation();
+                      window.open('https://crm.growbro.ai/', '_blank', 'noopener,noreferrer');
+                      return false;
+                    }}
                   >
                     Dashboard
                   </a>
