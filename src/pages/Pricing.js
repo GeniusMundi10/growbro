@@ -260,7 +260,17 @@ export default function Pricing() {
               ))}
             </ul>
             {plan.overage && <div className="plan-overage">Overage: {plan.overage}</div>}
-            <button className="plan-cta premium-btn">
+            <button
+              className="plan-cta premium-btn"
+              onClick={() => {
+                if (plan.name === 'Enterprise') {
+                  window.location.href = '/contact';
+                } else {
+                  window.location.href = 'https://crm.growbro.ai/signup';
+                }
+              }}
+              type="button"
+            >
               {plan.cta || (plan.name === 'Enterprise' ? 'Contact Us' : 'Start Free Trial')}
             </button>
           </div>

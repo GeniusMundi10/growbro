@@ -49,19 +49,22 @@ export default function Navbar() {
       setUser(session?.user ?? null);
     });
     supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
-    return () => authListener.subscription.unsubscribe();
-  }, []);
+    return () => {
+      if (authListener && authListener.subscription) {
+        authListener.subscription.unsubscribe();
+      }
+    };
+  });
 
-  // Sign in with Google via Supabase
-  const handleSignIn = async () => {
-    await supabase.auth.signInWithOAuth({ provider: 'google' });
-  };
-
-  // Sign out via Supabase
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
+  // Sign out
+  const handleSignOut = () => {
     setUser(null);
     setUserDropdownOpen(false);
+  };
+
+  // Sign in redirect only (no auth logic)
+  const handleSignIn = () => {
+    window.location.href = 'https://crm.growbro.ai/signup';
   };
 
   // Open CRM dashboard

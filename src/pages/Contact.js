@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { motion } from 'framer-motion';
+import { supabase } from '../supabaseClient';
 
 const initialValues = {
   name: '',
@@ -49,7 +50,7 @@ export default function Contact() {
             <span className="contact-btn-icon">🟢</span> Chat on WhatsApp
           </a>
           <a
-            href="mailto:mundigenius@gmail.com"
+            href="mailto:conversation@growbro.ai"
             className="contact-btn email"
           >
             <span className="contact-btn-icon">✉️</span> Email Us
@@ -76,9 +77,28 @@ export default function Contact() {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values, { resetForm }) => {
-              alert('Thank you! We will contact you soon.');
-              resetForm();
+            onSubmit={async (values, { resetForm, setSubmitting }) => {
+              try {
+                const { error } = await supabase
+                  .from('contact_messages')
+                  .insert([
+                    {
+                      name: values.name,
+                      email: values.email,
+                      message: values.message,
+                    },
+                  ]);
+                if (error) {
+                  alert('There was an error submitting your message. Please try again.');
+                } else {
+                  alert('Thank you! We will contact you soon.');
+                  resetForm();
+                }
+              } catch (e) {
+                alert('There was an error submitting your message. Please try again.');
+              } finally {
+                setSubmitting(false);
+              }
             }}
           >
             {({ isSubmitting }) => (
