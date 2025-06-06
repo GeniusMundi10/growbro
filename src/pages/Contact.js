@@ -61,6 +61,14 @@ export default function Contact() {
           >
             <span className="contact-btn-icon">📞</span> Call Us
           </a>
+          <a
+            href="https://calendar.app.google/d1EaaKV3eaQChXT5A"
+            className="contact-btn demo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="contact-btn-icon">📅</span> Schedule a Demo
+          </a>
           <div className="contact-badges">
             <span className="contact-badge">Meta Business Partner</span>
             <span className="contact-badge">Data Secure</span>
