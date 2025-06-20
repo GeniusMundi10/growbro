@@ -6,13 +6,57 @@ import FeatureIconChat from '../components/FeatureIconChat';
 import FeatureIconAnalytics from '../components/FeatureIconAnalytics';
 import FeatureIconGlobe from '../components/FeatureIconGlobe';
 import FeatureIconShield from '../components/FeatureIconShield';
-import PremiumHero from '../components/PremiumHero';
+import HeroSection from '../components/HeroSection';
+import StepsSection from '../components/StepsSection';
+import TrainAISection from '../components/TrainAISection';
+import CustomizeAISection from '../components/CustomizeAISection';
+import TrainChatbotSection from '../components/TrainChatbotSection';
+import FeatureGridSection from '../components/FeatureGridSection';
+import AdvancedAnalyticsSection from '../components/AdvancedAnalyticsSection';
+import SmartRoutingSection from '../components/SmartRoutingSection';
+import IntegrationsSection from '../components/IntegrationsSection';
+import FAQSection from '../components/FAQSection';
+import CTASection from '../components/CTASection';
+import '../components/TrainAISection.css';
+import '../components/CustomizeAISection.css';
+import '../components/TrainChatbotSection.css';
+import '../components/FeatureGridSection.css';
+import '../components/AdvancedAnalyticsSection.css';
+import '../components/SmartRoutingSection.css';
+import '../components/IntegrationsSection.css';
+import '../components/FAQSection.css';
+import '../components/CTASection.css';
+import '../components/StepsSection.css';
 
 export default function Home() {
   return (
     <>
-      {/* Premium Hero Section */}
-      <PremiumHero />
+      {/* Hero Section (Wonderchat-style) */}
+      <HeroSection />
+
+      {/* 3-Steps Section (Growbro-style) */}
+      <StepsSection />
+
+      {/* Train AI Section (Wonderchat-style) */}
+      <TrainAISection />
+
+      {/* Customize AI Section (Wonderchat-style) */}
+      <CustomizeAISection />
+
+      {/* Train Chatbot Section (Wonderchat-style) */}
+      <TrainChatbotSection />
+
+      {/* Feature Grid Section (Wonderchat-style) */}
+      <FeatureGridSection />
+
+      {/* Advanced Analytics Section (Wonderchat-style) */}
+      <AdvancedAnalyticsSection />
+
+      {/* Smart Routing Section (Wonderchat-style) */}
+      <SmartRoutingSection />
+
+      {/* Integrations Section (GrowBro-style) */}
+      <IntegrationsSection />
 
       {/* Premium Video Section - Plivo Style */}
       <section className="promo-video-section">
@@ -52,57 +96,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="section">
-        <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '2.2rem' }}>
-          Power Your Omnichannel Strategy with Speed, Compliance, and Expertise
-        </h2>
-        <div className="card-grid">
-          {whyChooseUs.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              className="card"
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 + idx * 0.09, duration: 0.5 }}
-              style={{ minHeight: 200 }}
-            >
-              <div className="card-icon">{item.icon}</div>
-              <div className="card-title" style={{ fontSize: '1.2rem', fontWeight: 700 }}>{item.title}</div>
-              <div className="card-description" style={{ fontSize: '1.05rem', fontWeight: 400 }}>{item.description}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* CTA Section */}
-      <section className="hero-section" style={{ background: 'linear-gradient(90deg, #d1fae5 0%, #f0fdf4 100%)' }}>
-        <motion.h2
-          className="hero-title"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '1.5rem' }}
-        >
-          Launch Your AI Chatbots Today
-        </motion.h2>
-        <motion.div
-          className="button-container"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Link to="/contact" className="button-primary" style={{ fontSize: '1.25rem', padding: '1rem 2.5rem', fontWeight: 700 }}>
-            Request Demo
-          </Link>
-          <Link to="/pricing" className="button-secondary" style={{ fontSize: '1.25rem', padding: '1rem 2.5rem', fontWeight: 700 }}>
-            Get Volume Pricing
-          </Link>
-        </motion.div>
-      </section>
+      <CTASection />
     </>
   );
 }
@@ -200,30 +199,4 @@ const features = [
   },
 ];
 
-const whyChooseUs = [
-  {
-    title: 'Faster Onboarding & Approval',
-    description: 'Get verified and set up your WhatsApp Business account quickly with priority approval.',
-    icon: <FeatureIconBot />,
-  },
-  {
-    title: 'Number Flexibility & Global Reach',
-    description: 'Choose from mobile, landline, or toll-free numbers—or use your existing number.',
-    icon: <FeatureIconGlobe />,
-  },
-  {
-    title: 'Premium Support & Priority Meta Assistance',
-    description: 'Expedited support and faster issue resolution for uninterrupted operations.',
-    icon: <FeatureIconChat />,
-  },
-  {
-    title: 'Built-In Compliance & Regulatory Adherence',
-    description: 'Pre-configured controls for GDPR, HIPAA, PCI DSS, ISO 27001, SOC 2, and more.',
-    icon: <FeatureIconShield />,
-  },
-  {
-    title: 'Enterprise-Grade Reliability',
-    description: 'Direct connections and 99.99% uptime for fast, secure message delivery.',
-    icon: <FeatureIconAnalytics />,
-  },
-];
+

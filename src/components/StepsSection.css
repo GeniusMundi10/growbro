@@ -1,0 +1,160 @@
+.steps-section {
+  background-color: #f0fdfa; /* Light teal background for Growbro theme */
+  padding: 5rem 1.5rem;
+  overflow: hidden;
+}
+
+.steps-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.steps-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4rem;
+  line-height: 1.2;
+}
+
+.steps-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.step-item {
+  position: relative;
+  flex: 1;
+  padding: 0 1.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.step-number {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #10b981; /* Growbro green */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.step-connector {
+  position: absolute;
+  top: 1.75rem;
+  left: calc(50% + 1.75rem);
+  right: calc(50% - 1.75rem);
+  height: 2px;
+  background-image: linear-gradient(to right, #10b981 50%, transparent 50%);
+  background-size: 16px 2px;
+  background-repeat: repeat-x;
+  z-index: 1;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .steps-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .steps-title {
+    font-size: 2.25rem;
+    margin-bottom: 3rem;
+  }
+  
+  .steps-row {
+    margin: 1.5rem 0;
+  }
+  
+  .step-connector {
+    display: none;
+  }
+  
+  .step-item {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .steps-section {
+    padding: 3.5rem 1.25rem; 
+  }
+  
+  .steps-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .steps-row {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 0.5rem;
+  }
+  
+  .step-item {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .step-number {
+    margin-bottom: 1rem;
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+  
+  .step-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-section {
+    padding: 3rem 1rem;
+  }
+  
+  .steps-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .steps-row {
+    gap: 2.5rem;
+  }
+  
+  .step-number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.35rem;
+  }
+  
+  .step-description {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+}

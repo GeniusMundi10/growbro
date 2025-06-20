@@ -1,0 +1,125 @@
+.integrations-section {
+  padding: 6rem 2rem;
+  background-color: #f0fdf4;
+}
+
+.integrations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.integrations-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.integrations-text {
+  text-align: center;
+}
+
+.integrations-label {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 1rem;
+}
+
+.integrations-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a202c;
+}
+
+.integrations-description {
+  font-size: 1.25rem;
+  color: #4a5568;
+  max-width: 550px;
+  margin: 0 auto 2rem;
+}
+
+.integrations-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  background-color: white;
+  color: #10b981;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.integrations-button:hover {
+  background-color: #f0fdf4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.integrations-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.logo-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: translateY(-5px);
+}
+
+.integration-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .integrations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .integrations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .integrations-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .integrations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .integrations-section {
+    padding: 4rem 1rem;
+  }
+  
+  .integrations-title {
+    font-size: 1.75rem;
+  }
+  
+  .integrations-description {
+    font-size: 1.1rem;
+  }
+}

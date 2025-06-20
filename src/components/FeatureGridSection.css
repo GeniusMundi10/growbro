@@ -1,0 +1,138 @@
+.feature-grid-section {
+  padding: 3rem 1.5rem;
+  background-color: #fff;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.feature-grid-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 100px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feature-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.feature-text {
+  margin-left: 16px;
+  flex: 1;
+}
+
+.feature-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.08);
+  margin-bottom: 14px;
+}
+
+/* Customized icon backgrounds */
+.rocket-feature .feature-icon-wrapper {
+  background-color: rgba(79, 200, 100, 0.08);
+}
+
+.ticket-feature .feature-icon-wrapper {
+  background-color: rgba(16, 185, 129, 0.12);
+}
+
+.analytics-feature .feature-icon-wrapper {
+  background-color: rgba(16, 185, 129, 0.16);
+}
+
+.bolt-feature .feature-icon-wrapper {
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+.devices-feature .feature-icon-wrapper {
+  background-color: rgba(16, 185, 129, 0.08);
+}
+
+.settings-feature .feature-icon-wrapper {
+  background-color: rgba(16, 185, 129, 0.14);
+}
+
+.feature-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.feature-link {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.feature-link:hover {
+  color: #059669;
+  text-decoration: underline;
+}
+
+.feature-description {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #4B5563;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .feature-grid {
+    gap: 30px 60px;
+  }
+}
+
+@media (max-width: 850px) {
+  .feature-grid-section {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature-grid-section {
+    padding: 2rem 1rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .feature-title {
+    font-size: 15px;
+  }
+  
+  .feature-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
