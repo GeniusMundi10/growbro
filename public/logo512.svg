@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="85" fill="#ffffff"/>
+  <!-- Outer rounded-corner frame -->
+  <path
+    d="M96 72C96 107.346 96 128 128 128H384C416 128 416 148.654 416 184V328C416 363.346 416 384 384 384H176L96 440V72Z"
+    stroke="#39543A"
+    strokeWidth="24"
+    fill="none"
+    strokeLinejoin="round"
+  />
+  <!-- Sprout stem -->
+  <path
+    d="M256 336V256"
+    stroke="#39543A"
+    strokeWidth="18"
+    strokeLinecap="round"
+  />
+  <!-- Center leaf -->
+  <path
+    d="M256 256C256 200 292 184 292 184C292 184 256 168 256 256Z"
+    fill="#39543A"
+  />
+  <!-- Left leaf -->
+  <path
+    d="M256 256C256 216 216 216 216 216C216 216 232 264 256 256Z"
+    fill="#39543A"
+  />
+  <!-- Right leaf -->
+  <path
+    d="M256 256C256 216 296 216 296 216C296 216 280 264 256 256Z"
+    fill="#39543A"
+  />
+  <!-- Circuit/AI nodes on leaves -->
+  <circle
+    cx="292"
+    cy="184"
+    r="8.8"
+    fill="#6BBF59"
+  />
+  <circle
+    cx="216"
+    cy="216"
+    r="8.8"
+    fill="#6BBF59"
+  />
+  <circle
+    cx="296"
+    cy="216"
+    r="8.8"
+    fill="#6BBF59"
+  />
+</svg>
