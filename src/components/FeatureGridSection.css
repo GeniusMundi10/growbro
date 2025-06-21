@@ -1,5 +1,5 @@
 .feature-grid-section {
-  padding: 3rem 1.5rem;
+  padding: 1.2rem 0.8rem 1rem 0.8rem;
   background-color: #fff;
   max-width: 100%;
   overflow: hidden;
@@ -108,7 +108,7 @@
 
 @media (max-width: 850px) {
   .feature-grid-section {
-    padding: 2.5rem 1.5rem;
+    padding: 0.7rem 0.6rem 0.5rem 0.6rem;
   }
   
   .feature-grid {

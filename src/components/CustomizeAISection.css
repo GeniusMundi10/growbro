@@ -1,5 +1,5 @@
 .customize-ai-section {
-  padding: 6rem 2rem;
+  padding: 2.2rem 1.2rem 1.7rem 1.2rem;
   background: linear-gradient(to right, #f9fafb 0%, #ffffff 100%);
   overflow: hidden;
 }
@@ -448,7 +448,7 @@
 
 @media (max-width: 576px) {
   .customize-ai-section {
-    padding: 4rem 1rem;
+    padding: 0.7rem 0.6rem 0.5rem 0.6rem;
   }
   
   .customize-card {

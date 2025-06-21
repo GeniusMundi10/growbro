@@ -1,5 +1,5 @@
 .train-chatbot-section {
-  padding: 6rem 2rem;
+  padding: 2.2rem 1.2rem 1.7rem 1.2rem;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -346,7 +346,7 @@
 
 @media (max-width: 576px) {
   .train-chatbot-section {
-    padding: 4rem 1rem;
+    padding: 0.7rem 0.6rem 0.5rem 0.6rem;
   }
   
   .content-title {

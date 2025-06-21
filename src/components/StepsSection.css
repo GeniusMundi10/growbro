@@ -1,6 +1,6 @@
 .steps-section {
   background-color: #f0fdfa; /* Light teal background for Growbro theme */
-  padding: 5rem 1.5rem;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
   overflow: hidden;
 }
 
@@ -79,16 +79,16 @@
 /* Responsive styles */
 @media (max-width: 900px) {
   .steps-section {
-    padding: 4rem 1.5rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
   }
   
   .steps-title {
     font-size: 2.25rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
   }
   
   .steps-row {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
   }
   
   .step-connector {
@@ -102,18 +102,18 @@
 
 @media (max-width: 768px) {
   .steps-section {
-    padding: 3.5rem 1.25rem; 
+    padding: 0.9rem 0.7rem 0.7rem 0.7rem;
   }
   
   .steps-title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.1rem;
     padding: 0 0.5rem;
   }
   
   .steps-row {
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.2rem;
     padding: 0 0.5rem;
   }
   
@@ -123,38 +123,38 @@
   }
   
   .step-number {
-    margin-bottom: 1rem;
-    width: 3.25rem;
-    height: 3.25rem;
+    margin-bottom: 0.7rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   
   .step-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .steps-section {
-    padding: 3rem 1rem;
+    padding: 0.6rem 0.4rem 0.4rem 0.4rem;
   }
   
   .steps-title {
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
   }
   
   .steps-row {
-    gap: 2.5rem;
+    gap: 0.7rem;
   }
   
   .step-number {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.35rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
   
   .step-description {
-    font-size: 0.95rem;
-    padding: 0 0.5rem;
+    font-size: 0.9rem;
+    padding: 0 0.2rem;
   }
 }

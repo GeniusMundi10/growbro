@@ -1,5 +1,5 @@
 .advanced-analytics-section {
-  padding: 6rem 1.5rem;
+  padding: 2.2rem 1.2rem 1.7rem 1.2rem;
   background-color: #fff;
   overflow: hidden;
 }
@@ -291,7 +291,7 @@
 
 @media (max-width: 640px) {
   .advanced-analytics-section {
-    padding: 3rem 1rem;
+    padding: 0.7rem 0.6rem 0.5rem 0.6rem;
   }
   
   .analytics-title {

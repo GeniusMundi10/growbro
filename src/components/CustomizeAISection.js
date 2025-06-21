@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import dashScreenshot from '../assets/dash_screenshot.png';
+import dogScreenshot from '../assets/dog_ss.png';
 
 // SVG Icon components to replace react-feather
 const CheckIcon = ({ size = 16 }) => (
@@ -76,9 +78,9 @@ export default function CustomizeAISection() {
                   background: avatarColors[selectedColor].startsWith('linear') ? avatarColors[selectedColor] : 'transparent'
                 }}
               >
-                <img src="/ai-assistant.png" alt="AI Assistant" onError={(e) => {
+                <img src={dogScreenshot} alt="AI Assistant" onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://via.placeholder.com/150?text=AI';
+                  e.target.src = '';
                 }} />
               </div>
               <h4 className="avatar-name">Emily</h4>
@@ -174,9 +176,9 @@ export default function CustomizeAISection() {
           
           <div className="video-tutorial">
             <div className="video-thumbnail">
-              <img src="/tutorial-thumbnail.jpg" alt="Tutorial Video" onError={(e) => {
+              <img src={dashScreenshot} alt="Tutorial Video" onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/200x120?text=Video+Tutorial';
+                e.target.src = '';
               }} />
               <div className="play-icon">
                 <VideoIcon size={24} />

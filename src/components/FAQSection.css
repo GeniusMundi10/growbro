@@ -1,5 +1,5 @@
 .faq-section {
-  padding: 4rem 0;
+  padding: 1.2rem 0.2rem 1rem 0.2rem;
   background-color: #ffffff;
   font-family: 'Inter', sans-serif;
 }
@@ -140,7 +140,7 @@
 
 @media (max-width: 480px) {
   .faq-section {
-    padding: 2.5rem 0;
+    padding: 0.6rem 0.1rem 0.4rem 0.1rem;
   }
   
   .faq-container {
