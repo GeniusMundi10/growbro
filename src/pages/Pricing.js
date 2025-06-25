@@ -67,87 +67,87 @@ const whatsappPlans = [
 const websitePlans = [
   {
     name: 'Starter',
-    price: 49,
+    price: 8000,
     frequency: '/mo',
     description: 'For entrepreneurs.',
     features: [
-      '25,000 messages',
-      '$1 per additional 1,000 messages',
+      '25000 chat messages',
+      '₹8 per additional 1000 messages',
       'Voice not included',
       '1 AI Agent',
       'Unlimited Sales Leads',
-      'Customer chat history',
+      'Customer Chat history',
       'Lead capture & contact export'
     ],
-    cta: 'Start Now',
+    cta: 'Select',
     highlight: false,
   },
   {
     name: 'Basic',
-    price: 199,
+    price: 16999,
     frequency: '/mo',
     description: 'For new startups.',
     features: [
-      '100,000 messages',
-      '$0.8 per additional 1,000 messages',
+      '100000 chat messages',
+      '₹8 per additional 1000 messages',
       'Voice not included',
       '2 AI Agents',
       'Unlimited Sales Leads',
-      'Customer chat history',
+      'Customer Chat history',
       'Lead capture & contact export'
     ],
-    cta: 'Start Now',
+    cta: 'Select',
     highlight: false,
   },
   {
     name: 'Pro',
-    price: 349,
+    price: 29699,
     frequency: '/mo',
     description: 'For small businesses.',
     features: [
-      '250,000 messages',
-      '$0.6 per additional 1,000 messages',
+      '250000 chat messages',
+      '₹8 per additional 1000 messages',
       '300 voice messages',
-      '$0.36 per additional voice minute',
+      '₹35 per additional voice minute',
       '4 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
     ],
-    cta: 'Start Now',
+    cta: 'Select',
     highlight: true, // visually highlight this card
   },
   {
     name: 'Growth',
-    price: 649,
+    price: 55199,
     frequency: '/mo',
     description: 'For growing businesses.',
     features: [
-      '500,000 messages',
-      '$0.06 per additional 1,000 messages',
+      '500000 chat messages',
+      '₹6 per additional 1000 messages',
       '400 voice messages',
-      '$0.34 per additional voice minute',
+      '₹34 per additional voice minute',
       '7 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
     ],
-    cta: 'Start Now',
+    cta: 'Select',
     highlight: false,
   },
   {
     name: 'Advanced',
-    price: 1199,
+    price: 101999,
     frequency: '/mo',
     description: 'For scaling teams.',
     features: [
-      '2,000,000 messages',
-      '$0.05 per additional 1,000 messages',
+      '2000000 chat messages',
+      '₹5 per additional 1000 messages',
       '600 voice messages',
-      '$0.32 per additional voice minute',
+      '₹32 per additional voice minute',
       '10 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
     ],
-    cta: 'Start Now',
+    cta: 'Select',
     highlight: false,
   },
 ];
@@ -173,17 +173,17 @@ const faqs = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
-  const [pricingType, setPricingType] = useState('whatsapp'); // 'whatsapp' or 'website'
+  const [pricingType, setPricingType] = useState('website'); // Default to 'website' for toggle
 
-  // Pricing logic for WhatsApp (₹) and Website ($)
+  // Pricing logic for WhatsApp (₹) and Website (₹)
   const getPrice = (plan) => {
     if (typeof plan.price === 'string') return plan.price;
     if (pricingType === 'whatsapp') {
-      if (annual) return `$${(plan.price * 10).toLocaleString()} /yr`;
-      return `$${plan.price.toLocaleString()} /mo`;
+      if (annual) return `₹${(plan.price * 10).toLocaleString()} /yr`;
+      return `₹${plan.price.toLocaleString()} /mo`;
     } else {
-      if (annual) return `$${(plan.price * 10).toLocaleString()} /yr`;
-      return `$${plan.price.toLocaleString()}${plan.frequency}`;
+      if (annual) return `₹${(plan.price * 10).toLocaleString()} /yr`;
+      return `₹${plan.price.toLocaleString()}${plan.frequency}`;
     }
   };
 

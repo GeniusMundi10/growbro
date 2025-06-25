@@ -3,6 +3,15 @@
 
 export const blogPosts = [
   {
+    slug: "add-ai-chatbot-to-website",
+    title: "How to Add an AI Chatbot to Your Website in 5 Minutes",
+    date: "2025-06-24",
+    author: "Growbro.ai Team",
+    tags: ["AI Chatbot", "Website Integration", "Customer Support", "No-Code"],
+    summary: "Discover how to effortlessly integrate a powerful AI chatbot into your website. This guide provides a step-by-step walkthrough for setting up, customizing, and deploying a chatbot to boost engagement and support.",
+    image: require("../assets/blog/chatbot-hero.jpg"),
+  },
+  {
     slug: "build-your-ai-clone",
     title: "How to Build Your Own AI Clone: Step-by-Step Guide (with Demo Video)",
     date: "2025-04-28",

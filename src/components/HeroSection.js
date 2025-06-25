@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import './HeroSection.css';
 import { Check, Send, MoreHorizontal, Sparkles, ArrowRight } from 'lucide-react';
+import AnimatedLogoSprout from './AnimatedLogoSprout';
 
 export default function HeroSection() {
   const features = [
@@ -199,9 +200,9 @@ export default function HeroSection() {
             <div className="chat-preview">
               <div className="chat-ui">
                 <div className="chat-header">
-                  <div className="avatar">
-                    G
-                  </div>
+                  <div className="avatar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'none', boxShadow: 'none', padding: 0 }}>
+  <AnimatedLogoSprout size={38} />
+</div>
                   <div className="chat-user-info">
                     <div className="chat-user-name">Growbro AI</div>
                     <div className="chat-user-role">AI Assistant</div>
