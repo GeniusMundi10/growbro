@@ -36,6 +36,7 @@ The foundation of an effective chatbot starts with proper configuration. Our int
 3. Input Business Context — Provide your company name, industry, and description to help the AI represent your brand accurately
 4. Define Goals & Audience — Specify whether you're focusing on lead generation, customer support, or other objectives
 5. Personalize AI Behavior — Select a tone that matches your brand voice (professional, casual, friendly, technical)
+6. Click "Save" to initialize your AI assistant. You will see a live preview in the dashboard.
 
 > 💡 **PRO TIP:**  
 > The more specific details you provide about your business, the more effectively your AI will engage with visitors. Take time to thoroughly complete each field during setup.
@@ -53,6 +54,7 @@ Visual consistency is crucial for maintaining user trust. Our customization tool
 3. Position & Behavior — Choose optimal placement (bottom-right is most common) and configure open/close animations
 4. Conversation Starters — Craft engaging welcome messages and suggested conversation prompts
 5. Data Collection — Customize lead capture forms to collect exactly the information your business needs
+6. Preview all changes in real-time using the Live Preview panel.
 
 > 💡 **BEST PRACTICE**  
 > Your welcome message is critical for engagement. Try something specific like "Got questions about our pricing?" instead of generic greetings like "How can I help you?
@@ -69,71 +71,61 @@ Implementation doesn't require a development team or technical expertise. Our on
 2. Copy Your Unique Script — Each chatbot has a unique identifier automatically included in the code
 3. Add to Your Website — Paste the code snippet just before the closing `</body>` tag in your website's HTML
 
-```html
-<!-- Growbro.ai Chatbot Integration - Simply add before </body> -->
+
+*!-- Growbro.ai Chatbot Integration - Simply add before </body> -->*
+
 <script 
   src="https://cdn.growbro.ai/chatbot.js" 
   id="growbro-chat" 
   data-bot-id="YOUR_BOT_ID">
 </script>
-```
+
 
 ### Framework-Specific Integration
 
 Using a modern JavaScript framework? We've got you covered with specialized integration guides:
 
-* **React:** `npm install @growbro/react-chatbot`
-* **Next.js:** Client-side only implementation with dynamic imports
-* **WordPress:** Plugin available for one-click installation
-* **Shopify:** Add directly through our official app
+1. React: `npm install @growbro/react-chatbot`
+2. Next.js: Client-side only implementation with dynamic imports
+3. WordPress: Plugin available for one-click installation
+4. Shopify: Add directly through our official app
 
-<div class="code-note-box">
-  <h4>✨ NO-CODE OPTION</h4>
-  <p>If you use platforms like Wix, Squarespace, or Webflow, simply copy your embed code from the dashboard and add it using their custom HTML/embed options—no coding knowledge required.</p>
-</div>
-
----
+> 💡 **✨ NO-CODE OPTION**  
+> If you use platforms like Wix, Squarespace, or Webflow, simply copy your embed code from the dashboard and add it using their custom HTML/embed options—no coding knowledge required.
 
 ## 4️⃣ Manage Conversations and Convert Leads Effortlessly
 
 With your chatbot deployed, you'll need an efficient way to track interactions and follow up on potential leads. Our comprehensive conversation management system gives you complete oversight.
 
-<div class="image-container">
-  <img src="../assets/blog/chatbot-conversations-view.jpg" alt="Growbro.ai Conversation Management Dashboard" class="feature-image" />
-  <span class="image-caption">Track, analyze, and respond to all customer interactions from one dashboard</span>
-</div>
+![Growbro.ai Conversation Management Dashboard](../assets/blog/chatbot-conversations-view.png)
+
 
 ### Conversation Intelligence
 
-1. **Centralized Communication Hub** — Access all chatbot interactions through the "Conversations" tab in your dashboard
-2. **Detailed Interaction History** — View complete conversation transcripts, including timestamps and user journey information
-3. **Lead Management** — Collected contact information is automatically organized and prioritized by engagement level 
-4. **Team Collaboration** — Assign conversations to specific team members and track follow-up status
-5. **Response Management** — Step in and take over conversations from the AI when human expertise is needed
+1. Centralized Communication Hub — Access all chatbot interactions through the "Conversations" tab in your dashboard
+2. Detailed Interaction History — View complete conversation transcripts, including timestamps and user journey information
+3. Lead Management — Collected contact information is automatically organized and prioritized by engagement level 
+4. Team Collaboration — Assign conversations to specific team members and track follow-up status
+5. Response Management — Step in and take over conversations from the AI when human expertise is needed
 
-<div class="data-insight-box">
-  <h4>📋 ORGANIZATION TIP</h4>
-  <p>Use the conversation filtering system to sort by date range, conversation status (open/closed), lead quality score, or specific keywords mentioned during interactions.</p>
-</div>
-
----
+> 💡 **📋 ORGANIZATION TIP**  
+> Use the conversation filtering system to sort by date range, conversation status (open/closed), lead quality score, or specific keywords mentioned during interactions.
 
 ## 5️⃣ Analyze Performance and Optimize Continuously
 
 The key to an effective AI chatbot is ongoing refinement. Our analytics dashboard provides actionable insights to maximize your ROI and continuously improve user experience.
 
-<div class="image-container">
-  <img src="../assets/blog/chatbot-live-on-website.jpg" alt="Growbro.ai Chatbot Live with Analytics Dashboard" class="feature-image" />
-  <span class="image-caption">Real-time analytics help you optimize performance and increase conversions</span>
-</div>
+![Growbro.ai Chatbot Live with Analytics Dashboard](../assets/blog/chatbot-live-on-website.png)
+
+
 
 ### Performance Optimization
 
-1. **Multi-Device Testing** — Verify your chatbot functions correctly across desktop, tablet, mobile, and various browsers
-2. **Conversation Analytics** — Track engagement metrics like chat duration, questions asked, and satisfaction ratings
-3. **Conversion Tracking** — Monitor how effectively your chatbot is meeting business objectives (leads, sales, support tickets)
-4. **Knowledge Gap Identification** — Discover common questions your chatbot struggles with and improve its knowledge base
-5. **A/B Testing** — Compare different welcome messages, chat interfaces, and conversation flows to maximize effectiveness
+1. Multi-Device Testing — Verify your chatbot functions correctly across desktop, tablet, mobile, and various browsers
+2. Conversation Analytics — Track engagement metrics like chat duration, questions asked, and satisfaction ratings
+3. Conversion Tracking — Monitor how effectively your chatbot is meeting business objectives (leads, sales, support tickets)
+4. Knowledge Gap Identification — Discover common questions your chatbot struggles with and improve its knowledge base
+5. A/B Testing — Compare different welcome messages, chat interfaces, and conversation flows to maximize effectiveness
 
 <div class="conclusion-box">
   <h3>🌟 Ready to Transform Your Website?</h3>
@@ -142,7 +134,6 @@ The key to an effective AI chatbot is ongoing refinement. Our analytics dashboar
   <p>Our support team is available around the clock to assist with any questions or customization needs. <a href="https://growbro.ai/contact" class="cta-link">Contact us today</a> to get started or explore our advanced features.</p>
 </div>
 
----
 
 <div class="author-section">
   <img src="../assets/blog/team-avatar.jpg" alt="Growbro.ai Team" class="author-image" />
