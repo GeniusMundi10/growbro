@@ -9,7 +9,7 @@ export const blogPosts = [
     author: "Growbro.ai Team",
     tags: ["AI Chatbot", "Website Integration", "Customer Support", "No-Code"],
     summary: "Discover how to effortlessly integrate a powerful AI chatbot into your website. This guide provides a step-by-step walkthrough for setting up, customizing, and deploying a chatbot to boost engagement and support.",
-    image: require("../assets/blog/chatbot-hero.jpg"),
+    image: require("../assets/blog/ai_chatbot.png"),
   },
   {
     slug: "build-your-ai-clone",

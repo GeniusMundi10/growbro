@@ -53,7 +53,7 @@ function processVideoEmbed(url) {
 }
 
 // Enhanced markdown renderer for headings and subheadings
-function renderContentBlock(block, index) {
+function renderContentBlock(block, index, post) {
   // H1
   if (/^# /.test(block)) {
     const text = block.replace(/^# /, '');
@@ -61,7 +61,13 @@ function renderContentBlock(block, index) {
     return (
       <div className="premium-hero-heading-container">
         <div className="premium-hero-heading-overlay"></div>
+        <div className="premium-hero-announcement">Announcement</div>
         <h1 id={id} className="premium-hero-heading">{text}</h1>
+        <div className="premium-hero-meta-centered">
+          <img src={post?.authorAvatar || 'https://i.pravatar.cc/40'} alt="Author avatar" className="premium-hero-avatar" />
+          <span className="premium-hero-author">{post?.author || 'Growbro Team'}</span>
+          <span className="premium-hero-date">{post?.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}</span>
+        </div>
       </div>
     );
   }
@@ -97,6 +103,18 @@ function renderContentBlock(block, index) {
       </div>
     );
   }
+  // Ordered List
+  if (/^\d+\. /.test(block)) {
+    return (
+      <div className="premium-list-container ordered">
+        <ol className="premium-ordered-list">
+          {block.split('\n').map((item, i) => (
+            /^\d+\. /.test(item) ? <li key={i} className="premium-list-item">{item.replace(/^\d+\. /, '')}</li> : null
+          ))}
+        </ol>
+      </div>
+    );
+  }
   // Blockquote
   if (/^> /.test(block)) {
     return (
@@ -115,9 +133,26 @@ function renderContentBlock(block, index) {
   }
   // Links - check for video embeds first
   if (block.startsWith('http')) {
+    const url = block.trim();
+    // Google Drive
+    if (url.includes('drive.google.com')) {
+      return (
+        <div className="premium-embed-container">
+          <iframe
+            src={url.replace('/view', '/preview')}
+            width="100%"
+            height="480"
+            allow="autoplay"
+            title="Embedded Google Drive Video"
+            className="premium-embed-iframe"
+          ></iframe>
+        </div>
+      );
+    }
+    // Fallback to existing video embed processor for YouTube, etc.
     return (
       <div className="premium-embed-container">
-        {processVideoEmbed(block.trim())}
+        {processVideoEmbed(url)}
       </div>
     );
   }
@@ -406,6 +441,27 @@ export default function PremiumBlogPost() {
   const heroRef = useRef();
   const [mdContent, setMdContent] = useState(null);
   const [readingStats, setReadingStats] = useState({ minutes: 0, words: 0 });
+
+  useEffect(() => {
+    let isMounted = true;
+    if (post) {
+      try {
+        const mdPath = require(`../blog/${post.date}-${slug}.md`);
+        fetch(mdPath)
+          .then(res => res.text())
+          .then(content => {
+            if (isMounted) {
+              setMdContent(content);
+              setReadingStats(getReadingStats(content));
+            }
+          })
+          .catch(() => setMdContent(null));
+      } catch {
+        setMdContent(null);
+      }
+    }
+    return () => { isMounted = false; };
+  }, [post, slug]);
   
   useEffect(() => {
     let isMounted = true;
@@ -510,32 +566,21 @@ export default function PremiumBlogPost() {
         </div>
         
         <main className="premium-main-content">
-          <div className="premium-summary-box">
-            <p className="premium-summary">{post.summary}</p>
-          </div>
-          
-          <div className="premium-content">
-            {mdContent ? renderPremiumContent(mdContent) : <div className="premium-loading">Loading...</div>}
-          </div>
-          
+          {mdContent && renderPremiumContent(mdContent)}
+
+          <SocialShare url={window.location.href} title={post?.title} />
+
           <NewsletterSubscription />
-          
-          <SocialShare 
-            url={`https://growbro.ai/blog/${slug}`} 
-            title={post.title} 
-          />
-          
-          <div className="premium-author-box">
-            <div className="premium-author-avatar">
-              <span>{post.author.charAt(0)}</span>
-            </div>
+
+          <div className="premium-author-section">
+            <img src={post?.authorAvatar || 'https://i.pravatar.cc/80'} alt="Author avatar" className="premium-author-avatar" />
             <div className="premium-author-info">
-              <h3 className="premium-author-name">{post.author}</h3>
+              <h3 className="premium-author-name">{post?.author}</h3>
               <p className="premium-author-bio">AI enthusiast and technical writer at Growbro.ai, passionate about making artificial intelligence accessible to everyone.</p>
             </div>
           </div>
-          
-          <RelatedArticles currentSlug={slug} tags={post.tags} />
+
+          <RelatedArticles currentSlug={slug} tags={post?.tags || []} />
         </main>
       </div>
       
