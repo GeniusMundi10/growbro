@@ -127,18 +127,14 @@ The key to an effective AI chatbot is ongoing refinement. Our analytics dashboar
 4. Knowledge Gap Identification — Discover common questions your chatbot struggles with and improve its knowledge base
 5. A/B Testing — Compare different welcome messages, chat interfaces, and conversation flows to maximize effectiveness
 
-<div class="conclusion-box">
-  <h3>🌟 Ready to Transform Your Website?</h3>
-  <p>By following this step-by-step guide, you've learned how to add a powerful AI chatbot to your website that can engage visitors 24/7, capture qualified leads, and provide instant support to your customers.</p>
-  <p>The best part? You can accomplish all of this in just minutes, with no coding experience required!</p>
-  <p>Our support team is available around the clock to assist with any questions or customization needs. <a href="https://growbro.ai/contact" class="cta-link">Contact us today</a> to get started or explore our advanced features.</p>
-</div>
 
+### 🌟 Ready to Transform Your Website?
 
-<div class="author-section">
-  <img src="../assets/blog/team-avatar.jpg" alt="Growbro.ai Team" class="author-image" />
-  <div class="author-info">
-    <p><strong>Written by the Growbro.ai Team</strong></p>
-    <p>AI implementation specialists helping businesses leverage conversational AI to grow revenue and enhance customer experiences.</p>
-  </div>
-</div>
+By following this step-by-step guide, you've learned how to add a powerful AI chatbot to your website that can engage visitors 24/7, capture qualified leads, and provide instant support to your customers.
+
+The best part? You can accomplish all of this in just minutes, with no coding experience required!
+
+Our support team is available around the clock to assist with any questions or customization needs. [Contact us today](https://growbro.ai/contact) to get started or explore our advanced features.
+
+**Written by the Growbro.ai Team**  
+AI implementation specialists helping businesses leverage conversational AI to grow revenue and enhance customer experiences.
