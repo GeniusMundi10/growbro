@@ -192,7 +192,15 @@ export default function HeroSection() {
 >
   Start for Free
 </a>
-              <button className="btn btn-outline">View Demo <ArrowRight size={16} /></button>
+              <a
+  className="btn btn-outline"
+  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3EI4r04PQ6xPrsOnppxEbZHUwaRH_ND6PMcZedjB8buhOQWywCyDT9189GiG1u49ebNGrAA7vH"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Book a Demo Now
+  <ArrowRight size={16} />
+</a>
             </div>
           </div>
           

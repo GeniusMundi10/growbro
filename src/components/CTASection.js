@@ -69,7 +69,7 @@ export default function CTASection() {
           >
             Start for Free
           </a>
-          <Link to="/demo" className="cta-button secondary">
+          <Link to="/blog/add-ai-chatbot-to-website" className="cta-button secondary">
             View Demo
           </Link>
         </motion.div>
