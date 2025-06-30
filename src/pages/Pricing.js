@@ -174,18 +174,94 @@ const faqs = [
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
   const [pricingType, setPricingType] = useState('website'); // Default to 'website' for toggle
+  const [currency, setCurrency] = useState('INR'); // INR, USD, GBP
+
+  // Currency symbols
+  const symbols = {
+    INR: '₹',
+    USD: '$',
+    GBP: '£',
+  };
+
+  // Conversion rates (static, can be updated)
+  const rates = {
+    INR: 1,
+    USD: 1/89, // 1 INR = 0.011 USD (example, adjust as needed)
+    GBP: 1/105, // 1 INR = 0.0095 GBP (example)
+  };
+
+  // Convert INR to selected currency
+  function convert(amountInINR) {
+    if (currency === 'INR') return amountInINR;
+    if (currency === 'USD') return amountInINR * rates.USD;
+    if (currency === 'GBP') return amountInINR * rates.GBP;
+    return amountInINR;
+  }
+
+  // Format price with symbol and 2 decimals if not INR
+  function formatPrice(amount) {
+    if (currency === 'INR') return `${symbols.INR}${Math.round(amount).toLocaleString()}`;
+    return `${symbols[currency]}${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+  }
 
   // Pricing logic for WhatsApp (₹) and Website (₹)
   const getPrice = (plan) => {
     if (typeof plan.price === 'string') return plan.price;
+    let price = plan.price;
+    let freq = plan.frequency || '/mo';
+    if (annual) price = price * 10;
+    // WhatsApp plans are in USD by default, website in INR
     if (pricingType === 'whatsapp') {
-      if (annual) return `₹${(plan.price * 10).toLocaleString()} /yr`;
-      return `₹${plan.price.toLocaleString()} /mo`;
+      // WhatsApp plan.price is in USD, so convert to INR first if needed
+      let baseUSD = plan.price;
+      if (annual) baseUSD = plan.price * 10;
+      let displayAmount;
+      if (currency === 'INR') {
+        // Use INR equivalent (from comments, e.g. ₹2,580/mo for $29/mo)
+        // We'll hardcode the mapping for now for accuracy
+        const usdToInr = [2580, 7030, 13260];
+        if (typeof plan.price === 'number') {
+          const idx = [29, 79, 149].indexOf(plan.price);
+          if (idx !== -1) {
+            displayAmount = annual ? usdToInr[idx] * 10 : usdToInr[idx];
+          } else {
+            displayAmount = annual ? 2580 * 10 : 2580; // fallback
+          }
+        } else {
+          displayAmount = '-';
+        }
+        return `${symbols.INR}${displayAmount.toLocaleString()}${annual ? ' /yr' : ' /mo'}`;
+      } else {
+        // USD or GBP
+        let amount = baseUSD;
+        if (currency === 'GBP') amount = amount * 0.79; // USD to GBP (example rate)
+        return `${symbols[currency]}${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}${annual ? ' /yr' : ' /mo'}`;
+      }
     } else {
-      if (annual) return `₹${(plan.price * 10).toLocaleString()} /yr`;
-      return `₹${plan.price.toLocaleString()}${plan.frequency}`;
+      // Website plans are in INR by default
+      let amount = price;
+      if (currency !== 'INR') amount = convert(price);
+      return `${formatPrice(amount)}${annual ? ' /yr' : freq}`;
     }
   };
+
+  // Overage/feature currency replacement
+  function localizeFeatureText(text) {
+    // Replace ₹, $ with correct symbol and convert number if needed
+    let replaced = text;
+    // Per 1000 messages/voice minute
+    replaced = replaced.replace(/₹([0-9,.]+)/g, (m, n) => formatPrice(currency === 'INR' ? Number(n) : convert(Number(n))));
+    replaced = replaced.replace(/\$([0-9,.]+)/g, (m, n) => {
+      let num = Number(n);
+      if (currency === 'INR') num = num * 89; // USD to INR (example)
+      else if (currency === 'GBP') num = num * 0.79;
+      return formatPrice(num);
+    });
+    replaced = replaced.replace(/USD/g, symbols.USD);
+    replaced = replaced.replace(/INR/g, symbols.INR);
+    replaced = replaced.replace(/GBP/g, symbols.GBP);
+    return replaced;
+  }
 
   const plans = pricingType === 'whatsapp' ? whatsappPlans : websitePlans;
 
@@ -244,6 +320,20 @@ export default function Pricing() {
           onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setAnnual(true)}
         >Annual <span className="save-badge">Save 2 months</span></span>
       </div>
+      {/* Currency Selector */}
+      <div className="currency-selector-row">
+        <span className="currency-label">Currency:</span>
+        {['INR', 'USD', 'GBP'].map(cur => (
+          <button
+            key={cur}
+            className={`currency-btn${currency === cur ? ' active' : ''}`}
+            onClick={() => setCurrency(cur)}
+            type="button"
+            aria-pressed={currency === cur}
+          >{symbols[cur]} {cur}</button>
+        ))}
+      </div>
+
       <div className="pricing-table modern-cards">
         {plans.map(plan => (
           <div
@@ -256,10 +346,10 @@ export default function Pricing() {
             <div className="plan-desc">{plan.description}</div>
             <ul className="plan-features">
               {plan.features.map(feature => (
-                <li key={feature}><span className="feature-tick">★</span> {feature}</li>
+                <li key={feature}><span className="feature-tick">★</span> {localizeFeatureText(feature)}</li>
               ))}
             </ul>
-            {plan.overage && <div className="plan-overage">Overage: {plan.overage}</div>}
+            {plan.overage && <div className="plan-overage">Overage: {localizeFeatureText(plan.overage)}</div>}
             <button
               className="plan-cta premium-btn"
               onClick={() => {
@@ -399,6 +489,39 @@ export default function Pricing() {
         .faq-q { font-weight: 600; margin-bottom: 0.2rem; color: #1a1a1a; }
         .faq-a { color: #444; }
         .pricing-note { text-align: center; color: #666; margin-top: 2.2rem; font-size: 1.01rem; }
+      .currency-selector-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.6rem;
+          margin-bottom: 1.6rem;
+        }
+        .currency-label {
+          font-weight: 600;
+          color: #189c4a;
+          font-size: 1.06rem;
+        }
+        .currency-btn {
+          background: #f0f8f3;
+          color: #189c4a;
+          border: 1.5px solid #e0e9e3;
+          border-radius: 8px;
+          font-size: 1.09rem;
+          font-weight: 700;
+          padding: 4px 16px;
+          margin: 0 2px;
+          cursor: pointer;
+          transition: background 0.16s, border 0.16s, color 0.16s;
+        }
+        .currency-btn.active, .currency-btn:focus-visible {
+          background: #25D366;
+          color: #fff;
+          border-color: #189c4a;
+        }
+        .currency-btn:hover {
+          background: #e6f9ee;
+        }
+
       `}</style>
     </section>
   );
