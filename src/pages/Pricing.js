@@ -1,78 +1,79 @@
 import React, { useState } from 'react';
 
 // WhatsApp pricing plans (existing)
-const whatsappPlans = [
-  {
-    name: 'Starter',
-    price: 29, // ₹2,580/mo
-    description: 'For small businesses getting started with WhatsApp RAG AI.',
-    features: [
-      'Up to 1,000 conversations/mo',
-      '1 WhatsApp number',
-      'Basic AI Agent',
-      'Basic analytics',
-      'Email support',
-    ],
-    overage: '$0.03 per conversation',
-    highlight: false,
-  },
-  {
-    name: 'Pro',
-    price: 79, // ₹7,030/mo
-    description: 'For growing teams needing more power and flexibility.',
-    features: [
-      'Up to 5,000 conversations/mo',
-      '3 WhatsApp numbers',
-      'Advanced AI + RAG',
-      'Analytics & integrations',
-      'Priority email support',
-      'Custom knowledge base',
-    ],
-    overage: '$0.03 per conversation',
-    highlight: true,
-    badge: 'Most Popular',
-  },
-  {
-    name: 'Business',
-    price: 149, // ₹13,260/mo
-    description: 'For businesses needing scale, advanced features, and support.',
-    features: [
-      'Up to 15,000 conversations/mo',
-      '10 WhatsApp numbers',
-      'Full RAG, API access',
-      'Priority support',
-      'Advanced integrations',
-    ],
-    overage: '$0.03 per conversation',
-    highlight: false,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    description: 'For large organizations with custom needs.',
-    features: [
-      'Unlimited conversations',
-      'Unlimited WhatsApp numbers',
-      'Dedicated support',
-      'Custom AI/RAG & integrations',
-      'On-premise/Cloud options',
-      'White-label & SLA',
-    ],
-    overage: 'Custom',
-    highlight: false,
-  },
-];
+// WhatsApp pricing plans (fully commented out)
+// const whatsappPlans = [
+//   {
+//     name: 'Starter',
+//     price: 29, // ₹2,580/mo
+//     description: 'For small businesses getting started with WhatsApp RAG AI.',
+//     features: [
+//       'Up to 1,000 conversations/mo',
+//       '1 WhatsApp number',
+//       'Basic AI Agent',
+//       'Basic analytics',
+//       'Email support',
+//     ],
+//     overage: '$0.03 per conversation',
+//     highlight: false,
+//   },
+//   {
+//     name: 'Pro',
+//     price: 79, // ₹7,030/mo
+//     description: 'For growing teams needing more power and flexibility.',
+//     features: [
+//       'Up to 5,000 conversations/mo',
+//       '3 WhatsApp numbers',
+//       'Advanced AI + RAG',
+//       'Analytics & integrations',
+//       'Priority email support',
+//       'Custom knowledge base',
+//     ],
+//     overage: '$0.03 per conversation',
+//     highlight: true,
+//     badge: 'Most Popular',
+//   },
+//   {
+//     name: 'Business',
+//     price: 149, // ₹13,260/mo
+//     description: 'For businesses needing scale, advanced features, and support.',
+//     features: [
+//       'Up to 15,000 conversations/mo',
+//       '10 WhatsApp numbers',
+//       'Full RAG, API access',
+//       'Priority support',
+//       'Advanced integrations',
+//     ],
+//     overage: '$0.03 per conversation',
+//     highlight: false,
+//   },
+//   {
+//     name: 'Enterprise',
+//     price: 'Custom',
+//     description: 'For large organizations with custom needs.',
+//     features: [
+//       'Unlimited conversations',
+//       'Unlimited WhatsApp numbers',
+//       'Dedicated support',
+//       'Custom AI/RAG & integrations',
+//       'On-premise/Cloud options',
+//       'White-label & SLA',
+//     ],
+//     overage: 'Custom',
+//     highlight: false,
+//   },
+// ];
 
 // Website pricing plans (from screenshot)
 const websitePlans = [
   {
     name: 'Starter',
-    price: 8000,
+    price: 29,
     frequency: '/mo',
     description: 'For entrepreneurs.',
     features: [
-      '25000 chat messages',
-      '₹8 per additional 1000 messages',
+      '5,000 chat messages',
+      '$1 per additional 1,000 messages',
       'Voice not included',
       '1 AI Agent',
       'Unlimited Sales Leads',
@@ -84,12 +85,12 @@ const websitePlans = [
   },
   {
     name: 'Basic',
-    price: 16999,
+    price: 49,
     frequency: '/mo',
     description: 'For new startups.',
     features: [
-      '100000 chat messages',
-      '₹8 per additional 1000 messages',
+      '20,000 chat messages',
+      '$1 per additional 1,000 messages',
       'Voice not included',
       '2 AI Agents',
       'Unlimited Sales Leads',
@@ -101,14 +102,14 @@ const websitePlans = [
   },
   {
     name: 'Pro',
-    price: 29699,
+    price: 99,
     frequency: '/mo',
     description: 'For small businesses.',
     features: [
-      '250000 chat messages',
-      '₹8 per additional 1000 messages',
+      '50,000 chat messages',
+      '$1 per additional 1,000 messages',
       '300 voice messages',
-      '₹35 per additional voice minute',
+      '$0.5 per additional voice minute',
       '4 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
@@ -118,14 +119,14 @@ const websitePlans = [
   },
   {
     name: 'Growth',
-    price: 55199,
+    price: 129,
     frequency: '/mo',
     description: 'For growing businesses.',
     features: [
-      '500000 chat messages',
-      '₹6 per additional 1000 messages',
+      '1,00,000 chat messages',
+      '$1 per additional 1,000 messages',
       '400 voice messages',
-      '₹34 per additional voice minute',
+      '$0.5 per additional voice minute',
       '7 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
@@ -135,14 +136,14 @@ const websitePlans = [
   },
   {
     name: 'Advanced',
-    price: 101999,
+    price: 349,
     frequency: '/mo',
     description: 'For scaling teams.',
     features: [
-      '2000000 chat messages',
-      '₹5 per additional 1000 messages',
+      '2,50,000 chat messages',
+      '$1 per additional 1,000 messages',
       '600 voice messages',
-      '₹32 per additional voice minute',
+      '$0.5 per additional voice minute',
       '10 AI Agents',
       'Unlimited Sales Leads',
       'Remove Growbro watermark'
@@ -173,8 +174,8 @@ const faqs = [
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
-  const [pricingType, setPricingType] = useState('website'); // Default to 'website' for toggle
-  const [currency, setCurrency] = useState('INR'); // INR, USD, GBP
+  // const [pricingType, setPricingType] = useState('website'); // Default to 'website' for toggle (commented out as WhatsApp toggle is removed)
+  const [currency, setCurrency] = useState('USD'); // INR, USD, GBP
 
   // Currency symbols
   const symbols = {
@@ -184,77 +185,45 @@ export default function Pricing() {
   };
 
   // Conversion rates (static, can be updated)
+  // USD is the base. Adjust rates as needed.
   const rates = {
-    INR: 1,
-    USD: 1/89, // 1 INR = 0.011 USD (example, adjust as needed)
-    GBP: 1/105, // 1 INR = 0.0095 GBP (example)
+    USD: 1,
+    INR: 83, // 1 USD = 83 INR (update as needed)
+    GBP: 0.78, // 1 USD = 0.78 GBP (update as needed)
   };
 
-  // Convert INR to selected currency
-  function convert(amountInINR) {
-    if (currency === 'INR') return amountInINR;
-    if (currency === 'USD') return amountInINR * rates.USD;
-    if (currency === 'GBP') return amountInINR * rates.GBP;
-    return amountInINR;
+  // Convert USD to selected currency
+  function convert(amountInUSD) {
+    return amountInUSD * rates[currency];
   }
 
   // Format price with symbol and 2 decimals if not INR
   function formatPrice(amount) {
-    if (currency === 'INR') return `${symbols.INR}${Math.round(amount).toLocaleString()}`;
-    return `${symbols[currency]}${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    // Remove decimals for all currencies
+    return `${symbols[currency]}${Math.round(amount).toLocaleString()}`;
   }
 
-  // Pricing logic for WhatsApp (₹) and Website (₹)
+  // Pricing logic for Website only (WhatsApp removed)
   const getPrice = (plan) => {
     if (typeof plan.price === 'string') return plan.price;
     let price = plan.price;
     let freq = plan.frequency || '/mo';
-    if (annual) price = price * 10;
-    // WhatsApp plans are in USD by default, website in INR
-    if (pricingType === 'whatsapp') {
-      // WhatsApp plan.price is in USD, so convert to INR first if needed
-      let baseUSD = plan.price;
-      if (annual) baseUSD = plan.price * 10;
-      let displayAmount;
-      if (currency === 'INR') {
-        // Use INR equivalent (from comments, e.g. ₹2,580/mo for $29/mo)
-        // We'll hardcode the mapping for now for accuracy
-        const usdToInr = [2580, 7030, 13260];
-        if (typeof plan.price === 'number') {
-          const idx = [29, 79, 149].indexOf(plan.price);
-          if (idx !== -1) {
-            displayAmount = annual ? usdToInr[idx] * 10 : usdToInr[idx];
-          } else {
-            displayAmount = annual ? 2580 * 10 : 2580; // fallback
-          }
-        } else {
-          displayAmount = '-';
-        }
-        return `${symbols.INR}${displayAmount.toLocaleString()}${annual ? ' /yr' : ' /mo'}`;
-      } else {
-        // USD or GBP
-        let amount = baseUSD;
-        if (currency === 'GBP') amount = amount * 0.79; // USD to GBP (example rate)
-        return `${symbols[currency]}${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}${annual ? ' /yr' : ' /mo'}`;
-      }
-    } else {
-      // Website plans are in INR by default
-      let amount = price;
-      if (currency !== 'INR') amount = convert(price);
-      return `${formatPrice(amount)}${annual ? ' /yr' : freq}`;
-    }
+    // If annual, apply 17% discount to monthly price, show as per month
+    if (annual) price = Math.round(price * 0.83);
+    let amount = price;
+    if (currency !== 'USD') amount = convert(price);
+    // Remove decimals for all currencies
+    return `${symbols[currency]}${Math.round(amount).toLocaleString()}${freq}`;
   };
 
   // Overage/feature currency replacement
   function localizeFeatureText(text) {
-    // Replace ₹, $ with correct symbol and convert number if needed
+    // Replace $ with correct symbol and convert number if needed (USD is base)
     let replaced = text;
-    // Per 1000 messages/voice minute
-    replaced = replaced.replace(/₹([0-9,.]+)/g, (m, n) => formatPrice(currency === 'INR' ? Number(n) : convert(Number(n))));
     replaced = replaced.replace(/\$([0-9,.]+)/g, (m, n) => {
       let num = Number(n);
-      if (currency === 'INR') num = num * 89; // USD to INR (example)
-      else if (currency === 'GBP') num = num * 0.79;
+      if (currency === 'INR') num = num * rates.INR;
+      else if (currency === 'GBP') num = num * rates.GBP;
       return formatPrice(num);
     });
     replaced = replaced.replace(/USD/g, symbols.USD);
@@ -263,12 +232,20 @@ export default function Pricing() {
     return replaced;
   }
 
-  const plans = pricingType === 'whatsapp' ? whatsappPlans : websitePlans;
+  const plans = websitePlans; // Only website plans shown, WhatsApp toggle removed
 
   return (
     <section className="pricing-section premium-ui">
-      <h2 className="pricing-title">Pricing Plans</h2>
-      {/* SOTA Minimal Switch Toggle for WhatsApp/Website */}
+      {/* Hero Section - Wonderchat Style */}
+      <div className="pricing-hero">
+        <div className="pricing-hero-label">AI Agent Pricing</div>
+        <h1 className="pricing-hero-title">Create your first AI Agent<br />in 5 minutes</h1>
+        <div className="pricing-hero-desc highlighted-hero-desc">
+        Start your free trial today. No credit card required!
+      </div>
+      </div>
+      {/* <h2 className="pricing-title">Pricing Plans</h2> */}
+      {/* WhatsApp/Website toggle removed as per request
       <div className="switch-toggle-row">
         <span
           className={`switch-label${pricingType === 'whatsapp' ? ' active' : ''}`}
@@ -294,32 +271,23 @@ export default function Pricing() {
           onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setPricingType('website')}
         >Website</span>
       </div>
+      */}
       {/* SOTA Minimal Switch Toggle for Monthly/Annual */}
-      <div className="switch-toggle-row small">
-        <span
-          className={`switch-label${!annual ? ' active' : ''}`}
-          role="button"
-          tabIndex={0}
-          onClick={() => setAnnual(false)}
-          onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setAnnual(false)}
-        >Monthly</span>
-        <button
-          className={`switch-toggle${annual ? ' right' : ''}`}
-          aria-pressed={annual}
-          onClick={() => setAnnual(a => !a)}
-          tabIndex={0}
-          type="button"
-        >
-          <span className="switch-knob"></span>
-        </button>
-        <span
-          className={`switch-label${annual ? ' active' : ''}`}
-          role="button"
-          tabIndex={0}
-          onClick={() => setAnnual(true)}
-          onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setAnnual(true)}
-        >Annual <span className="save-badge">Save 2 months</span></span>
-      </div>
+      <div className="annual-toggle-row">
+  <label className="annual-label">
+    <span>Annual <span className="annual-discount">(17% Discount)</span></span>
+  </label>
+  <button
+    className={`annual-switch${annual ? ' checked' : ''}`}
+    aria-pressed={annual}
+    onClick={() => setAnnual(a => !a)}
+    tabIndex={0}
+    type="button"
+    style={{marginLeft: '8px'}}
+  >
+    <span className="annual-knob"></span>
+  </button>
+</div>
       {/* Currency Selector */}
       <div className="currency-selector-row">
         <span className="currency-label">Currency:</span>
@@ -376,12 +344,101 @@ export default function Pricing() {
         ))}
       </div>
       <div className="pricing-note">
-        {pricingType === 'whatsapp'
-          ? 'All plans include secure WhatsApp Business API integration and RAG AI support. Cancel anytime.'
-          : 'All plans include advanced website AI chat, lead capture, and premium support. Cancel anytime.'}
+        All plans include advanced website AI chat, lead capture, and premium support. Cancel anytime.
       </div>
       {/* SOTA Minimal Switch Toggle CSS */}
       <style>{`
+        .annual-toggle-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 1.2rem;
+        }
+        .annual-label {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 1.09rem;
+          font-weight: 600;
+          color: #222;
+        }
+        .annual-discount {
+          color: #189c4a;
+          font-weight: 700;
+          font-size: 1.02rem;
+        }
+        .annual-switch {
+          width: 36px;
+          height: 20px;
+          border: none;
+          background: #e6f9ee;
+          border-radius: 12px;
+          position: relative;
+          cursor: pointer;
+          outline: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0;
+          transition: background 0.18s;
+        }
+        .annual-switch.checked {
+          background: #189c4a;
+        }
+        .annual-knob {
+          width: 16px;
+          height: 16px;
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 1px 4px rgba(36,181,98,0.13);
+          transition: transform 0.22s cubic-bezier(.4,0,.2,1);
+        }
+        .annual-switch:not(.checked) .annual-knob {
+          transform: translateX(2px);
+        }
+        .annual-switch.checked .annual-knob {
+          transform: translateX(18px);
+        }
+
+        .pricing-hero {
+          max-width: 700px;
+          margin: 0 auto 2.3rem auto;
+          text-align: center;
+          padding-top: 1.3rem;
+        }
+        .pricing-hero-label {
+          font-size: 1.08rem;
+          font-weight: 700;
+          color: #189c4a;
+          letter-spacing: 1.3px;
+          text-transform: uppercase;
+          margin-bottom: 0.4rem;
+        }
+        .pricing-hero-title {
+          font-size: 2.6rem;
+          font-weight: 800;
+          color: #1a3c24;
+          margin-bottom: 0.7rem;
+          line-height: 1.15;
+        }
+        .pricing-hero-desc {
+          font-size: 1.13rem;
+          color: #444;
+          margin-bottom: 1.2rem;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .highlighted-hero-desc {
+          background: #e6f9ee;
+          border-radius: 10px;
+          padding: 0.7rem 1.2rem;
+          color: #189c4a;
+          font-weight: 600;
+          display: inline-block;
+          margin-bottom: 1.4rem;
+        }
+
         .premium-ui { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: #f8faff; padding: 32px 0; }
         .pricing-title { text-align: center; font-size: 2.6rem; font-weight: 800; margin-bottom: 2rem; color: #1a3c24; letter-spacing: -1px; }
         /* Minimal Switch Toggle */
