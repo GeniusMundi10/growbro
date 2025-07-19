@@ -1,0 +1,55 @@
+/* 
+ * Chatbot Widget Fixes for Mobile
+ * These styles specifically target the embedded chatbot widget to ensure it displays correctly on mobile 
+ */
+
+/* Target chatbot widget iframe */
+iframe[id^="growbro-chatbox"],
+iframe[src*="growbro-chatbox"],
+iframe[src*="chatbox.growbro"],
+div[id^="growbro-chatbox-widget"],
+div[class*="growbro-chatbox"] {
+  max-width: 350px !important; /* Set maximum width */
+  width: 350px !important; /* Force specific width */
+  right: 0 !important; /* Align to right edge */
+  left: auto !important; /* Override any left positioning */
+  transform: none !important; /* Prevent any transformations */
+  overflow: visible !important; /* Ensure content (like minimize button) isn't cut off */
+  box-sizing: content-box !important; /* Prevent width calculations from including padding/border */
+}
+
+/* Target the wrapper elements that might be constraining the widget */
+div[id^="growbro-chatbox-container"],
+div[class*="growbro-chatbox-container"],
+div[class*="chat-widget-container"] {
+  max-width: 350px !important;
+  width: 350px !important;
+  right: 0 !important;
+  left: auto !important;
+  overflow: visible !important;
+  position: fixed !important;
+  transform: none !important;
+}
+
+/* Increase specificity of selectors by adding more parent elements */
+body div[id^="growbro-chatbox"],
+body iframe[id^="growbro-chatbox"],
+body div[class*="growbro-chatbox"] {
+  max-width: 350px !important;
+  width: 350px !important;
+  overflow: visible !important;
+}
+
+/* Media queries to make chatbot responsive on different mobile sizes */
+@media (max-width: 480px) {
+  iframe[id^="growbro-chatbox"],
+  iframe[src*="growbro-chatbox"],
+  iframe[src*="chatbox.growbro"],
+  div[id^="growbro-chatbox-widget"],
+  div[class*="growbro-chatbox"] {
+    max-width: 320px !important;
+    width: 320px !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+}

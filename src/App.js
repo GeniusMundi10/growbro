@@ -17,6 +17,7 @@ import './index.css';
 import './mobile.css';
 import './responsive-media.css';
 import './responsive-cards.css';
+import './chatbot-fix.css'; // Fix for chatbot widget on mobile
 
 function App() {
   return (
