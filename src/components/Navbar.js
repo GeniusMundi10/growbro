@@ -35,13 +35,40 @@ export default function Navbar() {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+  
+  // Ensure we're only checking window dimensions after mounting to avoid SSR issues
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Refs for tracking dropdown state and timeouts
   const dropdownRefs = useRef({});
   const submenuRefs = useRef({});
   const timeoutRef = useRef(null);
   const submenuTimeoutRef = useRef(null);
-  const isMobileView = typeof window !== 'undefined' && window.innerWidth < 900;
+  const [windowWidth, setWindowWidth] = useState(0);
+  
+  // Set up window resize listener after component mounts
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  
+  // Toggle body class when mobile menu is open to prevent scrolling
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }, [mobileOpen]);
+  
+  const isMobileView = windowWidth < 900;
 
   // Listen for auth state changes and check session on load
   useEffect(() => {
@@ -97,18 +124,36 @@ export default function Navbar() {
     // For mobile devices, toggle the dropdown
     if (isMobileView || window.innerWidth < 900) {
       e.preventDefault();
-      setActiveDropdown(activeDropdown === idx ? null : idx);
+      e.stopPropagation(); // Prevent event bubbling on mobile
+      
+      // Close any other open dropdown first
+      if (activeDropdown !== null && activeDropdown !== idx) {
+        setActiveDropdown(null);
+        setTimeout(() => {
+          setActiveDropdown(idx);
+        }, 10);
+      } else {
+        setActiveDropdown(activeDropdown === idx ? null : idx);
+      }
       setActiveSubmenu(null);
     }
   };
 
   // Toggle submenu on click for touch devices
   const handleSubmenuClick = (idx, e) => {
-    // For mobile devices, toggle the submenu
     if (isMobileView || window.innerWidth < 900) {
       e.preventDefault();
-      e.stopPropagation();
-      setActiveSubmenu(activeSubmenu === idx ? null : idx);
+      e.stopPropagation(); // Prevent event bubbling on mobile
+      
+      // Close any other open submenu first
+      if (activeSubmenu !== null && activeSubmenu !== idx) {
+        setActiveSubmenu(null);
+        setTimeout(() => {
+          setActiveSubmenu(idx);
+        }, 10);
+      } else {
+        setActiveSubmenu(activeSubmenu === idx ? null : idx);
+      }
     }
   };
 
@@ -158,26 +203,29 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar-premium">
+    <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className="logo">
           <AnimatedLogoSprout size={32} />
-          <span className="logo-text"><span className="logo-green">growbro</span><span className="logo-dark">.ai</span></span>
+          <span>
+            <span className="logo-green">growbro</span>
+            <span className="logo-dark">.ai</span>
+          </span>
         </Link>
         
         {/* Hamburger button for mobile */}
         <button
           className="hamburger"
-          aria-label="Open navigation menu"
-          aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={mobileOpen}
         >
           <span className={`hamburger-bar ${mobileOpen ? 'open-top' : ''}`}></span>
           <span className={`hamburger-bar ${mobileOpen ? 'open-middle' : ''}`}></span>
           <span className={`hamburger-bar ${mobileOpen ? 'open-bottom' : ''}`}></span>
         </button>
         
-        <div className={`navbar-links${mobileOpen ? ' navbar-links-mobile-open' : ''}`}>
+        <div className={`nav-links ${mobileOpen ? 'nav-links-mobile-open' : ''}`}>
           {navLinks.map((link, idx) => (
             link.children ? (
               <div
@@ -209,7 +257,7 @@ export default function Navbar() {
                       <div
                         key={child.name}
                         ref={el => submenuRefs.current[cidx] = el}
-                        className={`dropdown-item nested ${activeSubmenu === cidx ? 'expanded' : ''}`}
+                        className={`dropdown-item-wrapper ${activeSubmenu === cidx ? 'active' : ''}`}
                         onClick={(e) => handleSubmenuClick(cidx, e)}
                         onMouseEnter={() => handleSubmenuMouseEnter(cidx)}
                         onMouseLeave={handleSubmenuMouseLeave}
@@ -218,7 +266,7 @@ export default function Navbar() {
                         aria-expanded={activeSubmenu === cidx}
                         aria-haspopup="true"
                       >
-                        <span className="item-with-icon">
+                        <span className="dropdown-item with-arrow">
                           {child.name}
                           <svg className={`dropdown-arrow ${activeSubmenu === cidx ? 'rotated' : ''}`} width="10" height="6" viewBox="0 0 10 6">
                             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
@@ -226,7 +274,7 @@ export default function Navbar() {
                         </span>
                         
                         <div 
-                          className={`dropdown-menu submenu ${activeSubmenu === cidx ? 'visible' : ''}`}
+                          className={`submenu ${activeSubmenu === cidx ? 'visible' : ''}`}
                           onMouseEnter={() => handleSubmenuMouseEnter(cidx)}
                           onMouseLeave={handleSubmenuMouseLeave}
                         >

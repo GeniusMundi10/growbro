@@ -14,6 +14,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppChatButton from './components/WhatsAppChatButton';
 import './index.css';
+import './mobile.css';
+import './responsive-media.css';
+import './responsive-cards.css';
 
 function App() {
   return (

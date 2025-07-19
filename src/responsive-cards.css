@@ -1,0 +1,80 @@
+/* Responsive card grid layouts for Growbro
+ * These styles enhance the card grid components for mobile devices
+ * while preserving the desktop experience
+ */
+
+/* Base styles that apply to all screen sizes */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .card-description {
+    font-size: 0.95rem !important;
+  }
+  
+  .card-icon {
+    transform: scale(0.9);
+    transform-origin: left top;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+}
+
+/* Touch-friendly card interactions */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}

@@ -60,14 +60,14 @@ export default function Home() {
 
       {/* Premium Video Section - Plivo Style */}
       <section className="promo-video-section">
-        <div className="promo-video-wrapper">
+        <div className="video-container promo-video-wrapper">
           <iframe
             src="https://player.vimeo.com/video/1076991274?autoplay=0&title=0&byline=0&portrait=0"
             title="Growbro WhatsApp AI Demo Video"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            className="promo-video-iframe"
+            className="promo-video-iframe video-responsive"
           ></iframe>
         </div>
       </section>

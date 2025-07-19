@@ -23,6 +23,15 @@ body {
   align-items: center;
 }
 
+/* Mobile responsive styles for hero section */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px 0 16px 0;
+    min-height: auto;
+    height: auto;
+  }
+}
+
 .hero-background {
   display: none;
   position: absolute;
