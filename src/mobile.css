@@ -250,9 +250,19 @@
     font-size: 1rem !important;
   }
   
-  /* Prevent overflow issues, but exclude iframes to avoid breaking embedded widgets */
-  *:not(iframe):not([class*="chatbox"]) {
+  /* Prevent overflow issues, but exclude iframes and chatbot widgets to avoid breaking embedded widgets */
+  *:not(iframe):not([class*="chatbox"]):not([class*="chat"]):not([id*="chat"]):not([data-ai-id]) {
     max-width: 100%;
     box-sizing: border-box;
+  }
+  
+  /* Ensure chatbot widgets maintain their intended layout on mobile */
+  [class*="chatbox"],
+  [class*="chat"],
+  [id*="chat"],
+  [data-ai-id],
+  [data-ai-id] * {
+    max-width: none !important;
+    width: auto !important;
   }
 }
