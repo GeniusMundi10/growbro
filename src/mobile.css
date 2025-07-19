@@ -252,7 +252,7 @@
   
   /* Prevent overflow issues, but exclude iframes to avoid breaking embedded widgets */
   *:not(iframe):not([class*="chatbox"]) {
-    max-width: 100%;
+    /* max-width: 100%; -- Removed to fix chatbot widget width issue on mobile */
     box-sizing: border-box;
   }
 }
