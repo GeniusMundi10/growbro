@@ -81,58 +81,97 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   
-  // Simple mobile detection
+  // Enhanced mobile detection and guaranteed style injection
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth <= 640;
+      // More aggressive mobile detection at 768px for broader mobile support
+      const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
       
-      // Apply direct CSS overrides for mobile
+      // Apply direct CSS overrides for mobile - ULTRA HIGH PRIORITY
       if (mobile) {
         // Override with direct DOM manipulation to guarantee it works
+        // This bypasses all CSS cascade issues and Next.js/React hydration problems
         const style = document.createElement('style');
         style.id = 'blog-filter-mobile-fix';
         style.innerHTML = `
+          /* CRITICAL: Force blog controls to stack vertically */
           .blog-controls {
+            display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
+            gap: 12px !important;
+            margin-bottom: 20px !important;
           }
           
+          /* CRITICAL: Force blog filters to scroll horizontally */
           .blog-category-nav {
             display: flex !important;
+            flex-direction: row !important;
             flex-wrap: nowrap !important;
             overflow-x: auto !important;
             width: 100% !important;
-            scrollbar-width: none !important;
-            padding-bottom: 0.5rem !important;
+            max-width: 100% !important;
+            margin-bottom: 8px !important;
+            padding: 4px 0 12px 0 !important;
+            scrollbar-width: none !important; /* Firefox */
             -webkit-overflow-scrolling: touch !important;
+            gap: 8px !important;
           }
           
+          /* Hide scrollbar */
           .blog-category-nav::-webkit-scrollbar {
             display: none !important;
+            height: 0 !important;
+            width: 0 !important;
           }
           
+          /* Prevent blog category buttons from wrapping */
           .blog-category-btn {
+            flex: 0 0 auto !important;
             flex-shrink: 0 !important;
-            margin-right: 0.5rem !important;
+            flex-grow: 0 !important;
             white-space: nowrap !important;
+            margin-right: 0 !important;
+            display: inline-block !important;
           }
           
+          /* Force search to be full width */
           .blog-search {
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          .blog-search-input {
             width: 100% !important;
           }
         `;
         
-        // Remove any existing style first
+        // Remove any existing style with the same ID
         const existingStyle = document.getElementById('blog-filter-mobile-fix');
         if (existingStyle) {
           existingStyle.remove();
         }
         
-        // Add to document head to ensure it has the highest priority
+        // Add at the very end of head to override everything else
         document.head.appendChild(style);
+        
+        // Double-check that our style was added and is working
+        setTimeout(() => {
+          const blogControls = document.querySelector('.blog-controls');
+          const blogCategoryNav = document.querySelector('.blog-category-nav');
+          
+          // If elements exist but styles aren't applied, try direct manipulation
+          if (blogControls && window.getComputedStyle(blogControls).flexDirection !== 'column') {
+            blogControls.style.cssText = 'display: flex !important; flex-direction: column !important; align-items: flex-start !important;';
+          }
+          
+          if (blogCategoryNav) {
+            blogCategoryNav.style.cssText = 'display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; width: 100% !important;';
+          }
+        }, 100);
       } else {
-        // Remove mobile overrides when on desktop
+        // Remove the style if not mobile
         const existingStyle = document.getElementById('blog-filter-mobile-fix');
         if (existingStyle) {
           existingStyle.remove();
@@ -140,11 +179,15 @@ export default function Blog() {
       }
     };
     
-    handleResize();
+    handleResize(); // Run once on mount
     window.addEventListener('resize', handleResize);
+    
+    // Call again after a delay to catch any race conditions with hydration
+    setTimeout(handleResize, 500);
+    
     return () => {
       window.removeEventListener('resize', handleResize);
-      // Clean up style tag on unmount
+      // Clean up on unmount
       const existingStyle = document.getElementById('blog-filter-mobile-fix');
       if (existingStyle) {
         existingStyle.remove();

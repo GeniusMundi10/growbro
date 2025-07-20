@@ -250,10 +250,47 @@
     font-size: 1rem !important;
   }
   
-  /* Prevent overflow issues, but exclude iframes and chatbot widgets to avoid breaking embedded widgets */
-  *:not(iframe):not([class*="chatbox"]):not([class*="chat"]):not([id*="chat"]):not([data-ai-id]) {
+  /* Prevent overflow issues, but exclude iframes, chatbot widgets, and blog filters to avoid breaking layouts */
+  *:not(iframe):not([class*="chatbox"]):not([class*="chat"]):not([id*="chat"]):not([data-ai-id]):not(.blog-category-nav):not(.blog-controls):not(.blog-category-btn) {
     max-width: 100%;
     box-sizing: border-box;
+  }
+  
+  /* Ensure blog filters scroll horizontally on mobile */
+  .blog-controls {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .blog-category-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 8px !important;
+    padding: 4px 0 12px 0 !important;
+    scrollbar-width: none !important; /* Firefox */
+    -webkit-overflow-scrolling: touch !important;
+    gap: 8px !important;
+  }
+  
+  .blog-category-nav::-webkit-scrollbar {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+  
+  .blog-category-btn {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    white-space: nowrap !important;
+    margin-right: 0 !important;
+    display: inline-block !important;
   }
   
   /* Ensure chatbot widgets maintain their intended layout on mobile */
