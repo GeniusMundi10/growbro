@@ -131,7 +131,7 @@ export default function Blog() {
     <div className="blog-container">
       <BlogHeader />
       
-      <div className="blog-controls">
+      <div className="blog-controls" style={isMobile ? { flexWrap: 'nowrap' } : undefined}>
         <div 
           className="blog-category-nav" 
           style={isMobile ? {
