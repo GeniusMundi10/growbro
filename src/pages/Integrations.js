@@ -8,35 +8,35 @@ function Integrations() {
     {
       id: 1,
       name: 'Discord',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968756.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968759.png',
       description: 'Connect Growbro to your Discord server to automate replies in your channels. Easy setup — ideal for support and community engagement.',
       tags: ['Channel Integration']
     },
     {
       id: 2,
       name: 'Facebook Messenger',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968764.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968772.png',
       description: 'Connect Growbro to Facebook Messenger to automate replies on your Facebook Page. Easy setup and seamless customer engagement.',
       tags: ['Channel Integration']
     },
     {
       id: 3,
       name: 'Microsoft Sharepoint',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968890.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/732/732221.png',
       description: 'Connect Microsoft SharePoint to Growbro to train your chatbot on business documents, with secure access and seamless setup.',
       tags: ['Document Management']
     },
     {
       id: 4,
       name: 'Zendesk',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968853.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5969/5969044.png',
       description: 'Integrate Growbro with Zendesk to automatically create support tickets from chatbot queries and streamline customer service operations.',
       tags: ['Helpdesk']
     },
     {
       id: 5,
       name: 'WhatsApp',
-      icon: 'https://cdn-icons-png.flaticon.com/512/220/220236.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/3670/3670051.png',
       description: 'Integrate Growbro with WhatsApp to automate customer support through your WhatsApp Business account. Set up your bot in minutes.',
       tags: ['Channel Integration']
     },
@@ -50,21 +50,21 @@ function Integrations() {
     {
       id: 7,
       name: 'Twilio',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5969/5969044.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/6033/6033716.png',
       description: 'Set up SMS alerts by integrating Growbro with Twilio via Zapier. Receive instant notifications of new live chat requests to your phone for faster response.',
       tags: ['Channel Integration', 'Phone Call']
     },
     {
       id: 8,
       name: 'Freshdesk',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968704.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/882/882730.png',
       description: 'Connect Growbro to Freshdesk to automatically create support tickets when chatbot queries are escalated. Streamline human support.',
       tags: ['Helpdesk']
     },
     {
       id: 9,
       name: 'Active Campaign',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968870.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968861.png',
       description: 'Learn how to integrate Growbro with ActiveCampaign in minutes. Automatically sync chatbot leads directly to your ActiveCampaign contact list.',
       tags: ['CRM']
     },
@@ -78,21 +78,21 @@ function Integrations() {
     {
       id: 11,
       name: 'Google Drive',
-      icon: 'https://cdn-icons-png.flaticon.com/512/2991/2991147.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968523.png',
       description: 'Integrate Google Drive with Growbro to train your AI chatbot on your Drive documents, with automated syncing and secure access.',
       tags: ['Document Management']
     },
     {
       id: 12,
       name: 'Shopify',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968853.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/825/825500.png',
       description: 'Integrate Growbro with Shopify to enhance customer support and engagement. Easily install the chatbot app for seamless 24/7 shopping assistance.',
       tags: ['Channel Integration', 'E-Commerce']
     },
     {
       id: 13,
       name: 'Slack',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968866.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5969/5969002.png',
       description: 'Integrate Growbro with Slack to automate chatbot interactions and enhance team communication. Connect your chatbot to Slack.',
       tags: ['Channel Integration']
     }
