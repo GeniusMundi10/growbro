@@ -15,7 +15,7 @@ function Integrations() {
     {
       id: 2,
       name: 'Facebook Messenger',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968772.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/733/733547.png',
       description: 'Connect Growbro to Facebook Messenger to automate replies on your Facebook Page. Easy setup and seamless customer engagement.',
       tags: ['Channel Integration']
     },
@@ -43,21 +43,21 @@ function Integrations() {
     {
       id: 6,
       name: 'Zapier',
-      icon: 'https://cdn-icons-png.flaticon.com/512/3291/3291667.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968914.png',
       description: 'Connect Growbro to thousands of apps with Zapier. Automate customer support workflows, lead management, and notifications—no coding needed.',
       tags: ['CRM']
     },
     {
       id: 7,
       name: 'Twilio',
-      icon: 'https://cdn-icons-png.flaticon.com/512/6033/6033716.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/6125/6125024.png',
       description: 'Set up SMS alerts by integrating Growbro with Twilio via Zapier. Receive instant notifications of new live chat requests to your phone for faster response.',
       tags: ['Channel Integration', 'Phone Call']
     },
     {
       id: 8,
       name: 'Freshdesk',
-      icon: 'https://cdn-icons-png.flaticon.com/512/882/882730.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968646.png',
       description: 'Connect Growbro to Freshdesk to automatically create support tickets when chatbot queries are escalated. Streamline human support.',
       tags: ['Helpdesk']
     },
@@ -92,7 +92,7 @@ function Integrations() {
     {
       id: 13,
       name: 'Slack',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5969/5969002.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968890.png',
       description: 'Integrate Growbro with Slack to automate chatbot interactions and enhance team communication. Connect your chatbot to Slack.',
       tags: ['Channel Integration']
     }
