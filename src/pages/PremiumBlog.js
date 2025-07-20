@@ -57,7 +57,7 @@ export default function PremiumBlog() {
 
       <div className="premium-blog-filters">
         <div className="premium-blog-filter-buttons">
-          {allTags.slice(0, 6).map((tag) => (
+          {allTags.map((tag) => (
             <button
               key={tag}
               className={activeFilter === tag ? "active" : ""}
