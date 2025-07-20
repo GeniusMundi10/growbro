@@ -57,7 +57,7 @@ export default function PremiumBlog() {
 
       <div className="premium-blog-filters">
         <div className="premium-blog-filter-buttons">
-          {allTags.map((tag) => (
+          {allTags.slice(0, 6).map((tag) => (
             <button
               key={tag}
               className={activeFilter === tag ? "active" : ""}
@@ -78,48 +78,7 @@ export default function PremiumBlog() {
           </div>
         </main>
 
-        <aside className="premium-blog-sidebar">
-          <div className="premium-blog-sidebar-widget">
-            <h3 className="premium-blog-sidebar-title">Search</h3>
-            <div className="premium-blog-search-bar">
-              <span className="premium-blog-search-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className="premium-blog-sidebar-widget">
-            <h3 className="premium-blog-sidebar-title">Trending Posts</h3>
-            <div className="premium-blog-trending-posts-list">
-              {trendingPosts.map((post) => (
-                <Link to={`/blog/${post.slug}`} key={post.slug} className="premium-blog-trending-post">
-                  <img src={post.image} alt={post.title} />
-                  <div className="premium-blog-trending-post-info">
-                    <h4 className="premium-blog-trending-post-title">{post.title}</h4>
-                    <p className="premium-blog-trending-post-meta">{post.date}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="premium-blog-sidebar-widget">
-            <h3 className="premium-blog-sidebar-title">Popular Topics</h3>
-            <div className="premium-blog-tags-container">
-              {allTags.slice(1, 8).map((tag) => (
-                <button key={tag} className="premium-blog-tag" onClick={() => setActiveFilter(tag)}>
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        </aside>
+        {/* Sidebar removed to match Wonderchat design */}
       </div>
     </div>
   );
