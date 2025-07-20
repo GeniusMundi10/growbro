@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../blog/posts";
 import "../styles/Blog.css";
@@ -79,6 +79,15 @@ const BlogPostFeatured = ({ post }) => {
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Simple mobile detection
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Define categories
   const categories = ['All', 'Guides', 'News', 'Announcements'];
@@ -123,29 +132,25 @@ export default function Blog() {
       <BlogHeader />
       
       <div className="blog-controls">
-        <div className="blog-category-nav" style={{ 
-          display: 'flex',
-          overflowX: 'auto',
-          whiteSpace: 'nowrap',
-          width: '100%',
-          WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'none', /* Firefox */
-          msOverflowStyle: 'none' /* IE/Edge */
-        }}>
-          <style jsx>{`
-            .blog-category-nav::-webkit-scrollbar {
-              display: none; /* Chrome, Safari, Edge */
-            }
-          `}</style>
+        <div 
+          className="blog-category-nav" 
+          style={isMobile ? {
+            display: 'flex',
+            flexWrap: 'nowrap',
+            overflowX: 'auto',
+            whiteSpace: 'nowrap',
+            width: '100%',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none', /* Firefox */
+            msOverflowStyle: 'none' /* IE/Edge */
+          } : undefined}
+        >
           {categories.map(category => (
             <button
               key={category}
               className={`blog-category-btn ${activeCategory === category ? 'active' : ''}`}
               onClick={() => setActiveCategory(category)}
-              style={{
-                flexShrink: 0,
-                marginRight: '0.5rem'
-              }}
+              style={isMobile ? { flexShrink: 0, marginRight: '0.5rem' } : undefined}
             >
               {category}
             </button>
