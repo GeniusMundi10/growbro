@@ -10,6 +10,7 @@ import PremiumBlog from './pages/PremiumBlog';
 import PremiumBlogPost from './pages/PremiumBlogPost';
 import WhatsAppCustomerCare from './pages/WhatsAppCustomerCare';
 import ThriftBooksShowcase from './pages/ThriftBooksShowcase';
+import Integrations from './pages/Integrations';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppChatButton from './components/WhatsAppChatButton';
@@ -37,6 +38,7 @@ function App() {
             <Route path="/blog/:slug" element={<PremiumBlogPost />} />
             <Route path="/products/sales-agent" element={<ThriftBooksShowcase />} />
             <Route path="/products/customer-care" element={<WhatsAppCustomerCare />} />
+            <Route path="/integrations" element={<Integrations />} />
           </Routes>
         </main>
         <Footer />
