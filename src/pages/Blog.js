@@ -123,12 +123,29 @@ export default function Blog() {
       <BlogHeader />
       
       <div className="blog-controls">
-        <div className="blog-category-nav">
+        <div className="blog-category-nav" style={{ 
+          display: 'flex',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none', /* Firefox */
+          msOverflowStyle: 'none' /* IE/Edge */
+        }}>
+          <style jsx>{`
+            .blog-category-nav::-webkit-scrollbar {
+              display: none; /* Chrome, Safari, Edge */
+            }
+          `}</style>
           {categories.map(category => (
             <button
               key={category}
               className={`blog-category-btn ${activeCategory === category ? 'active' : ''}`}
               onClick={() => setActiveCategory(category)}
+              style={{
+                flexShrink: 0,
+                marginRight: '0.5rem'
+              }}
             >
               {category}
             </button>
