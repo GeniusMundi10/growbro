@@ -209,4 +209,31 @@
   .premium-blog-posts-grid {
     grid-template-columns: 1fr;
   }
+  
+  /* Mobile horizontal scrolling for filters */
+  .premium-blog-filters {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .premium-blog-filters::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  
+  .premium-blog-filter-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+  
+  .premium-blog-filter-buttons button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
