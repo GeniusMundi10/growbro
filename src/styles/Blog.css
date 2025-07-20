@@ -305,6 +305,39 @@
     height: 250px;
   }
   
+  .blog-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .blog-category-nav {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .blog-category-nav::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  
+  .blog-category-btn {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+  
+  .blog-search {
+    width: 100%;
+  }
+  
+  .blog-search-input {
+    width: 100%;
+  }
+  
   .blog-featured-card .blog-post-title {
     font-size: 1.5rem;
   }
