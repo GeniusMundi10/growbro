@@ -83,10 +83,73 @@ export default function Blog() {
   
   // Simple mobile detection
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 640);
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 640;
+      setIsMobile(mobile);
+      
+      // Apply direct CSS overrides for mobile
+      if (mobile) {
+        // Override with direct DOM manipulation to guarantee it works
+        const style = document.createElement('style');
+        style.id = 'blog-filter-mobile-fix';
+        style.innerHTML = `
+          .blog-controls {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+          
+          .blog-category-nav {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            width: 100% !important;
+            scrollbar-width: none !important;
+            padding-bottom: 0.5rem !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+          
+          .blog-category-nav::-webkit-scrollbar {
+            display: none !important;
+          }
+          
+          .blog-category-btn {
+            flex-shrink: 0 !important;
+            margin-right: 0.5rem !important;
+            white-space: nowrap !important;
+          }
+          
+          .blog-search {
+            width: 100% !important;
+          }
+        `;
+        
+        // Remove any existing style first
+        const existingStyle = document.getElementById('blog-filter-mobile-fix');
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+        
+        // Add to document head to ensure it has the highest priority
+        document.head.appendChild(style);
+      } else {
+        // Remove mobile overrides when on desktop
+        const existingStyle = document.getElementById('blog-filter-mobile-fix');
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+      }
+    };
+    
     handleResize();
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      // Clean up style tag on unmount
+      const existingStyle = document.getElementById('blog-filter-mobile-fix');
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+    };
   }, []);
   
   // Define categories
@@ -129,28 +192,17 @@ export default function Blog() {
 
   return (
     <div className="blog-container">
+      {/* Mobile filter fixes are now applied via direct DOM manipulation in useEffect */}
       <BlogHeader />
       
-      <div className="blog-controls" style={isMobile ? { flexWrap: 'nowrap' } : undefined}>
-        <div 
-          className="blog-category-nav" 
-          style={isMobile ? {
-            display: 'flex',
-            flexWrap: 'nowrap',
-            overflowX: 'auto',
-            whiteSpace: 'nowrap',
-            width: '100%',
-            WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'none', /* Firefox */
-            msOverflowStyle: 'none' /* IE/Edge */
-          } : undefined}
-        >
+      <div className="blog-controls">
+        <div className="blog-category-nav">
           {categories.map(category => (
             <button
               key={category}
               className={`blog-category-btn ${activeCategory === category ? 'active' : ''}`}
               onClick={() => setActiveCategory(category)}
-              style={isMobile ? { flexShrink: 0, marginRight: '0.5rem' } : undefined}
+
             >
               {category}
             </button>
