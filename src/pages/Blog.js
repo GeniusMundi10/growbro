@@ -238,14 +238,26 @@ export default function Blog() {
       {/* Mobile filter fixes are now applied via direct DOM manipulation in useEffect */}
       <BlogHeader />
       
-      <div className="blog-controls">
-        <div className="blog-category-nav">
+      <div className="blog-controls" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px', marginBottom: '20px' }}>
+        <div className="blog-category-nav" style={{ 
+          display: 'flex', 
+          flexDirection: 'row',
+          flexWrap: 'nowrap',
+          overflowX: 'auto',
+          width: '100%',
+          maxWidth: '100%',
+          marginBottom: '8px',
+          padding: '4px 0 12px 0',
+          scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch',
+          gap: '8px'
+        }}>
           {categories.map(category => (
             <button
               key={category}
               className={`blog-category-btn ${activeCategory === category ? 'active' : ''}`}
               onClick={() => setActiveCategory(category)}
-
+              style={{ flex: '0 0 auto', flexShrink: 0, whiteSpace: 'nowrap', marginRight: '0' }}
             >
               {category}
             </button>
