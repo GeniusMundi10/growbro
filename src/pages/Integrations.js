@@ -57,7 +57,7 @@ function Integrations() {
     {
       id: 8,
       name: 'Freshdesk',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968646.png',
+      icon: 'https://cdn-icons-png.flaticon.com/512/6214/6214877.png',
       description: 'Connect Growbro to Freshdesk to automatically create support tickets when chatbot queries are escalated. Streamline human support.',
       tags: ['Helpdesk']
     },
