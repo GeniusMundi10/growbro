@@ -51,7 +51,7 @@
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 0;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
 }
@@ -97,7 +97,8 @@
 .premium-blog-filter-buttons {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 2.5rem;
   padding: 0.5rem 0 1rem;
   width: auto;
   margin: 0 auto;
@@ -248,10 +249,12 @@
     justify-content: flex-start;
     padding: 0;
     margin-bottom: 2rem;
+    overflow-x: auto;
   }
   
   .premium-blog-filter-buttons {
     justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 2rem;
     padding: 0.5rem 1rem 0.75rem;
     width: max-content;
