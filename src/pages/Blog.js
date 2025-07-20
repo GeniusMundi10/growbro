@@ -83,15 +83,87 @@ export default function Blog() {
   
   // Enhanced mobile detection and guaranteed style injection
   useEffect(() => {
+    // DEBUG: Log initialization
+    console.log('Blog.js useEffect running - starting mobile debug');
+    
+    // DEBUG: Create a function to inspect computed styles
+    const inspectStyles = () => {
+      console.log('=== BLOG FILTER DEBUG ===');
+      console.log('Window width:', window.innerWidth);
+      console.log('Is mobile viewport:', window.innerWidth <= 768);
+      
+      // Check for our elements
+      const controls = document.querySelector('.blog-controls');
+      const nav = document.querySelector('.blog-category-nav');
+      const buttons = document.querySelectorAll('.blog-category-btn');
+      
+      if (controls) {
+        console.log('✓ Blog controls found');
+        console.log('  - display:', window.getComputedStyle(controls).display);
+        console.log('  - flexDirection:', window.getComputedStyle(controls).flexDirection);
+        console.log('  - alignItems:', window.getComputedStyle(controls).alignItems);
+      } else {
+        console.log('✗ Blog controls NOT FOUND');
+      }
+      
+      if (nav) {
+        console.log('✓ Blog category nav found');
+        console.log('  - display:', window.getComputedStyle(nav).display);
+        console.log('  - flexWrap:', window.getComputedStyle(nav).flexWrap);
+        console.log('  - overflowX:', window.getComputedStyle(nav).overflowX);
+        console.log('  - width:', window.getComputedStyle(nav).width);
+      } else {
+        console.log('✗ Blog category nav NOT FOUND');
+      }
+      
+      if (buttons.length > 0) {
+        console.log(`✓ Found ${buttons.length} category buttons`);
+        console.log('  - display:', window.getComputedStyle(buttons[0]).display);
+        console.log('  - flexShrink:', window.getComputedStyle(buttons[0]).flexShrink);
+        console.log('  - whiteSpace:', window.getComputedStyle(buttons[0]).whiteSpace);
+        
+        // Check if buttons are wider than container
+        let totalButtonWidth = 0;
+        buttons.forEach(btn => {
+          totalButtonWidth += btn.offsetWidth;
+        });
+        
+        if (nav) {
+          console.log('Total button width:', totalButtonWidth, 'px');
+          console.log('Nav width:', nav.offsetWidth, 'px');
+          console.log('Overflow needed:', totalButtonWidth > nav.offsetWidth);
+        }
+      } else {
+        console.log('✗ Blog category buttons NOT FOUND');
+      }
+      
+      // Check for our style element
+      const injectedStyle = document.getElementById('blog-filter-mobile-fix');
+      if (injectedStyle) {
+        console.log('✓ Style element injected successfully');
+      } else {
+        console.log('✗ Style element NOT FOUND');
+      }
+    };
+    
     const handleResize = () => {
       // More aggressive mobile detection at 768px for broader mobile support
       const mobile = window.innerWidth <= 768;
+      console.log('Resize detected, mobile:', mobile);
       setIsMobile(mobile);
       
       // Apply direct CSS overrides for mobile - ULTRA HIGH PRIORITY
       if (mobile) {
+        console.log('Applying mobile CSS fixes...');
+        
+        // First remove any existing style we added
+        const existingStyle = document.getElementById('blog-filter-mobile-fix');
+        if (existingStyle) {
+          console.log('Removing existing style element');
+          existingStyle.remove();
+        }
+        
         // Override with direct DOM manipulation to guarantee it works
-        // This bypasses all CSS cascade issues and Next.js/React hydration problems
         const style = document.createElement('style');
         style.id = 'blog-filter-mobile-fix';
         style.innerHTML = `
@@ -147,14 +219,11 @@ export default function Blog() {
           }
         `;
         
-        // Remove any existing style with the same ID
-        const existingStyle = document.getElementById('blog-filter-mobile-fix');
-        if (existingStyle) {
-          existingStyle.remove();
-        }
-        
         // Add at the very end of head to override everything else
         document.head.appendChild(style);
+        
+        // Run inspection after a brief delay
+        setTimeout(inspectStyles, 500);
         
         // Double-check that our style was added and is working
         setTimeout(() => {
