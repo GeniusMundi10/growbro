@@ -45,12 +45,15 @@ export default function PremiumBlog() {
 
   return (
     <div className="premium-blog-container">
-      <header className="premium-blog-header">
-        <h1 className="premium-blog-title">Growbro.ai Blog</h1>
-        <p className="premium-blog-subtitle">
-          Insights, stories, and updates from the frontier of trustworthy AI & business growth.
-        </p>
-      </header>
+      <div className="premium-blog-top">
+        <header className="premium-blog-header">
+          <a href="/blog" className="premium-blog-top-link">Blog</a>
+          <h1 className="premium-blog-title">The Growbro.ai Blog</h1>
+          <p className="premium-blog-subtitle">
+            Discover expert articles, best practices, and case studies on leveraging AI-powered chatbots to enhance customer engagement and streamline support.
+          </p>
+        </header>
+      </div>
 
       <div className="premium-blog-filters">
         <div className="premium-blog-filter-buttons">
