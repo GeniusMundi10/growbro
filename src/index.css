@@ -1869,10 +1869,17 @@ code {
   
   .dropdown-menu.submenu {
     margin-left: 1rem;
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
   
   .dropdown-menu.submenu.visible {
     transform: none;
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
   }
 }
 
