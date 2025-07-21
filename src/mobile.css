@@ -85,6 +85,8 @@
     max-height: 0;
     opacity: 0;
     overflow: hidden;
+    background-color: transparent !important;
+    padding: 0 !important;
   }
   
   .dropdown-item-wrapper.active .submenu {

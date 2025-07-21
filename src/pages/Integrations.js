@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/Integrations.css';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 function Integrations() {
+  useEffect(() => {
+    // Import animation script dynamically
+    const script = document.createElement('script');
+    script.src = process.env.PUBLIC_URL + '/scripts/animateIntegrations.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      // Clean up script when component unmounts
+      if (script) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   // Integration cards data
   const integrations = [
     {
@@ -15,7 +31,7 @@ function Integrations() {
     {
       id: 2,
       name: 'Facebook Messenger',
-      icon: 'https://cdn-icons-png.flaticon.com/512/733/733547.png',
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/512px-Facebook_Messenger_logo_2020.svg.png',
       description: 'Connect Growbro to Facebook Messenger to automate replies on your Facebook Page. Easy setup and seamless customer engagement.',
       tags: ['Channel Integration']
     },
@@ -43,21 +59,21 @@ function Integrations() {
     {
       id: 6,
       name: 'Zapier',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968914.png',
+      icon: 'https://cdn.zapier.com/zapier/images/logos/zapier-logo.svg',
       description: 'Connect Growbro to thousands of apps with Zapier. Automate customer support workflows, lead management, and notifications—no coding needed.',
       tags: ['CRM']
     },
     {
       id: 7,
       name: 'Twilio',
-      icon: 'https://cdn-icons-png.flaticon.com/512/6125/6125024.png',
+      icon: 'https://www.twilio.com/assets/icons/twilio-icon-512-red.png',
       description: 'Set up SMS alerts by integrating Growbro with Twilio via Zapier. Receive instant notifications of new live chat requests to your phone for faster response.',
       tags: ['Channel Integration', 'Phone Call']
     },
     {
       id: 8,
       name: 'Freshdesk',
-      icon: 'https://cdn-icons-png.flaticon.com/512/6214/6214877.png',
+      icon: 'https://freshdesk.com/static-assets/images/common/company/logos/logo-freshdesk.svg',
       description: 'Connect Growbro to Freshdesk to automatically create support tickets when chatbot queries are escalated. Streamline human support.',
       tags: ['Helpdesk']
     },
@@ -92,7 +108,7 @@ function Integrations() {
     {
       id: 13,
       name: 'Slack',
-      icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968890.png',
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/512px-Slack_icon_2019.svg.png',
       description: 'Integrate Growbro with Slack to automate chatbot interactions and enhance team communication. Connect your chatbot to Slack.',
       tags: ['Channel Integration']
     }
@@ -139,6 +155,7 @@ function Integrations() {
                 <span className="integration-tag" key={index}>{tag}</span>
               ))}
             </div>
+            <a href="#" className="integration-cta">Learn more</a>
           </div>
         ))}
       </div>
@@ -156,6 +173,7 @@ function Integrations() {
                 <span className="integration-tag" key={index}>{tag}</span>
               ))}
             </div>
+            <a href="#" className="integration-cta">Learn more</a>
           </div>
         ))}
       </div>
@@ -173,6 +191,15 @@ function Integrations() {
               </ul>
             </div>
           ))}
+        </div>
+      </div>
+      
+      <div className="integration-cta-section">
+        <h2 className="cta-title">Don't see what you need?</h2>
+        <p className="cta-description">We're constantly adding new integrations. If you don't see what you're looking for, contact us and we'll help you connect your AI assistant to the tools you use.</p>
+        <div className="cta-buttons">
+          <Link to="/contact" className="cta-button primary">Contact Us</Link>
+          <Link to="/signup" className="cta-button secondary">Start Free Trial</Link>
         </div>
       </div>
     </div>
