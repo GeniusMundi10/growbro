@@ -283,7 +283,9 @@ export default function Navbar() {
                           className={`submenu ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'visible' : ''}`}
                           onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                           onMouseLeave={handleSubmenuMouseLeave}
-                          style={isMobileView && activeSubmenu === getUniqueSubKey(idx, cidx) ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}}
+                          style={activeSubmenu === getUniqueSubKey(idx, cidx) ? 
+                            (isMobileView ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}) : 
+                            {display: 'none'}}
                         >
                           {child.children.map(sub => (
                             <Link 
