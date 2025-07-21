@@ -58,13 +58,14 @@
     position: static !important;
     box-shadow: none !important;
     border-left: 4px solid #16a34a;
-    margin-left: 1rem;
-    width: calc(100% - 1rem) !important;
-    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 0 0 0 1rem !important;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
+    box-sizing: border-box !important;
   }
   
   .navbar-item.dropdown.expanded .dropdown-menu {
@@ -77,7 +78,7 @@
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
-    position: relative !important;
+    position: static !important;
     left: 0 !important;
     box-sizing: border-box !important;
     display: block !important;
@@ -85,9 +86,9 @@
   }
 
   .dropdown-item {
-    padding: 0.75rem 1.5rem !important;
-    width: auto !important;
-    margin-left: 1.5rem !important;
+    padding: 0.75rem 1rem !important;
+    width: 100% !important;
+    margin: 0 !important;
     display: block;
     text-align: left;
     word-break: break-word;
@@ -104,7 +105,7 @@
     box-shadow: none !important;
     border-left: 4px solid #86efac;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 0 0 1rem !important;
     width: 100% !important;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     max-height: 0;
@@ -145,6 +146,13 @@
   transition: transform 0.2s ease;
 }
 
+@media (max-width: 900px) {
+  .dropdown-arrow {
+    position: absolute;
+    right: 15px;
+  }
+}
+
 .dropdown-arrow.rotated {
   transform: rotate(180deg);
 }
@@ -154,10 +162,16 @@
   button,
   .button,
   a.button,
-  .nav-link,
-  .dropdown-item {
+  .nav-link {
     min-height: 44px;
     padding: 12px 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-item {
+    min-height: 44px;
+    padding: 12px 12px 12px 16px !important;
     display: flex;
     align-items: center;
   }
