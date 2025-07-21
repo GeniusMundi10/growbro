@@ -16,6 +16,7 @@ const navLinks = [
     children: [
       { 
         name: 'Products', 
+        path: '/products',
         children: products
       },
       { name: 'Usecases', path: '/use-cases' }
@@ -266,7 +267,7 @@ export default function Navbar() {
                         key={child.name}
                         ref={el => submenuRefs.current[getUniqueSubKey(idx, cidx)] = el}
                         className={`dropdown-item-wrapper ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'active' : ''}`}
-                        onClick={(e) => handleSubmenuClick(getUniqueSubKey(idx, cidx), e)}
+                        onClick={(e) => child.path ? null : handleSubmenuClick(getUniqueSubKey(idx, cidx), e)}
                         onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                         onMouseLeave={handleSubmenuMouseLeave}
                         tabIndex={0}
