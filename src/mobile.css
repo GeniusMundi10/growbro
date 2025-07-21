@@ -75,7 +75,8 @@
     display: block;
   }
   
-  .submenu {
+  .submenu,
+  .submenu.visible {
     position: static !important;
     box-shadow: none !important;
     border-left: 4px solid #86efac;
@@ -86,6 +87,17 @@
     opacity: 0;
     overflow: hidden;
     background-color: transparent !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+  
+  /* Ensure no background on any state */
+  .dropdown-item-wrapper.active .submenu,
+  .dropdown-item-wrapper:hover .submenu,
+  .dropdown-item-wrapper:focus .submenu,
+  .dropdown-item-wrapper.expanded .submenu {
+    background-color: transparent !important;
+    background: none !important;
     padding: 0 !important;
   }
   
