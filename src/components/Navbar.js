@@ -68,6 +68,7 @@ export default function Navbar() {
     }
   }, [mobileOpen]);
   
+  // Determine if we're in mobile view based on window width
   const isMobileView = windowWidth < 900;
 
   // Listen for auth state changes and check session on load
@@ -251,6 +252,7 @@ export default function Navbar() {
                   className={`dropdown-menu ${activeDropdown === idx ? 'visible' : ''}`}
                   onMouseEnter={() => handleDropdownMouseEnter(idx)}
                   onMouseLeave={handleDropdownMouseLeave}
+                  style={isMobileView && activeDropdown === idx ? {opacity: 1, display: 'block'} : {}}
                 >
                   {link.children.map((child, cidx) =>
                     child.children ? (
@@ -277,6 +279,7 @@ export default function Navbar() {
                           className={`submenu ${activeSubmenu === cidx ? 'visible' : ''}`}
                           onMouseEnter={() => handleSubmenuMouseEnter(cidx)}
                           onMouseLeave={handleSubmenuMouseLeave}
+                          style={isMobileView && activeSubmenu === cidx ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}}
                         >
                           {child.children.map(sub => (
                             <Link 
