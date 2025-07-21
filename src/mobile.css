@@ -30,6 +30,8 @@
     overflow-y: auto;
     display: flex !important;
     opacity: 1;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .navbar-item,
@@ -48,6 +50,8 @@
   
   .navbar-item.dropdown .nav-link {
     padding: 0.75rem 1rem !important;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .dropdown-menu {
@@ -70,15 +74,15 @@
   }
   
   .dropdown-item {
-    padding: 0.75rem 0.75rem !important;
-    width: auto;
-    min-width: 250px;
+    padding: 0.75rem 0 0.75rem 3.5rem !important;
+    width: 100%;
     max-width: 100%;
     display: block;
     text-align: left;
     word-break: break-word;
     white-space: normal;
     overflow-wrap: break-word;
+    box-sizing: border-box;
   }
   
   .submenu,
@@ -86,10 +90,10 @@
     position: static !important;
     box-shadow: none !important;
     border-left: 4px solid #86efac;
-    margin-left: 2.5rem;
+    margin-left: 0;
     margin-right: 0;
-    padding-right: 0;
-    width: calc(100% - 2.5rem) !important;
+    padding-left: 0;
+    width: 100% !important;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     max-height: 0;
     opacity: 0;
@@ -97,8 +101,8 @@
     overflow-y: hidden;
     background-color: transparent !important;
     background: none !important;
-    padding: 0 !important;
     text-indent: 0;
+    box-sizing: border-box;
   }
   
   /* Ensure no background on any state */
