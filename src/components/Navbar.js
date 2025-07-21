@@ -130,13 +130,16 @@ export default function Navbar() {
       // Close any other open dropdown first
       if (activeDropdown !== null && activeDropdown !== idx) {
         setActiveDropdown(null);
+        setActiveSubmenu(null); // Always reset submenu when changing dropdowns
         setTimeout(() => {
           setActiveDropdown(idx);
         }, 10);
       } else {
         setActiveDropdown(activeDropdown === idx ? null : idx);
+        if (activeDropdown === null || activeDropdown !== idx) {
+          setActiveSubmenu(null); // Reset submenu when closing dropdown
+        }
       }
-      setActiveSubmenu(null);
     }
   };
 
@@ -157,6 +160,9 @@ export default function Navbar() {
       }
     }
   };
+  
+  // Create unique identifiers for dropdown items to prevent mix-ups
+  const getUniqueSubKey = (idx, cidx) => `${idx}-${cidx}`;
 
   // Handle mouse events for desktop dropdowns
   const handleDropdownMouseEnter = (idx) => {
@@ -179,21 +185,21 @@ export default function Navbar() {
   };
 
   // Handle mouse events for submenu
-  const handleSubmenuMouseEnter = (idx) => {
-    // Clear any existing submenu timeout
-    if (submenuTimeoutRef.current) {
-      clearTimeout(submenuTimeoutRef.current);
-      submenuTimeoutRef.current = null;
+  const handleSubmenuMouseEnter = (subKey) => {
+    // Only handle hover effects on desktop
+    if (!isMobileView && window.innerWidth >= 900) {
+      // Clear any existing timeout
+      if (submenuTimeoutRef.current) {
+        clearTimeout(submenuTimeoutRef.current);
+        submenuTimeoutRef.current = null;
+      }
+      
+      // Don't change if already set to this index
+      if (activeSubmenu === subKey) return;
+      
+      // Set active submenu immediately
+      setActiveSubmenu(subKey);
     }
-    
-    // Keep parent dropdown open
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-    
-    // Set active submenu immediately
-    setActiveSubmenu(idx);
   };
 
   const handleSubmenuMouseLeave = () => {
@@ -258,28 +264,28 @@ export default function Navbar() {
                     child.children ? (
                       <div
                         key={child.name}
-                        ref={el => submenuRefs.current[cidx] = el}
-                        className={`dropdown-item-wrapper ${activeSubmenu === cidx ? 'active' : ''}`}
-                        onClick={(e) => handleSubmenuClick(cidx, e)}
-                        onMouseEnter={() => handleSubmenuMouseEnter(cidx)}
+                        ref={el => submenuRefs.current[getUniqueSubKey(idx, cidx)] = el}
+                        className={`dropdown-item-wrapper ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'active' : ''}`}
+                        onClick={(e) => handleSubmenuClick(getUniqueSubKey(idx, cidx), e)}
+                        onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                         onMouseLeave={handleSubmenuMouseLeave}
                         tabIndex={0}
                         role="button"
-                        aria-expanded={activeSubmenu === cidx}
+                        aria-expanded={activeSubmenu === getUniqueSubKey(idx, cidx)}
                         aria-haspopup="true"
                       >
                         <span className="dropdown-item with-arrow">
                           {child.name}
-                          <svg className={`dropdown-arrow ${activeSubmenu === cidx ? 'rotated' : ''}`} width="10" height="6" viewBox="0 0 10 6">
+                          <svg className={`dropdown-arrow ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'rotated' : ''}`} width="10" height="6" viewBox="0 0 10 6">
                             <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
                           </svg>
                         </span>
                         
                         <div 
-                          className={`submenu ${activeSubmenu === cidx ? 'visible' : ''}`}
-                          onMouseEnter={() => handleSubmenuMouseEnter(cidx)}
+                          className={`submenu ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'visible' : ''}`}
+                          onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                           onMouseLeave={handleSubmenuMouseLeave}
-                          style={isMobileView && activeSubmenu === cidx ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}}
+                          style={isMobileView && activeSubmenu === getUniqueSubKey(idx, cidx) ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}}
                         >
                           {child.children.map(sub => (
                             <Link 
