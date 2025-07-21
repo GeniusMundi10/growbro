@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 const steps = [
   {
-    title: 'Connect WhatsApp',
-    description: 'Integrate your WhatsApp Business account with growbro.ai in just a few clicks. Get verified and ready to go instantly.',
+    title: 'Sign Up for Free',
+    description: 'Get started with a 2-week free trial without any credit card. Experience all premium features with no commitment required.',
     svg: (
-      <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="36" fill="#e6f9ee"/><g><circle cx="36" cy="36" r="22" fill="#25D366"/><path d="M45.5 30.5c-1-2-3.5-3.5-7-3.5-5 0-9 3.5-9 8 0 2.5 1.5 4.5 3.5 6l-1 3 3-1c1.5 1 3.5 1.5 5.5 1.5 5 0 9-3.5 9-8 0-1-.5-2-1-3" fill="#fff"/></g></svg>
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="36" fill="#e6f9ee"/><rect x="24" y="24" width="24" height="24" rx="6" fill="#25D366"/><path d="M36 30v12M30 36h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
     ),
   },
   {
@@ -25,9 +25,16 @@ const steps = [
   },
   {
     title: 'Go Live Instantly',
-    description: 'Deploy your AI agent on WhatsApp. Start automating sales, support, and engagement within minutes.',
+    description: 'Deploy your AI agent across your chosen channels or embed it in your website with just one line of code. Start automating sales, support, and engagement within minutes.',
     svg: (
       <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="36" fill="#e6f9ee"/><rect x="28" y="34" width="16" height="8" rx="4" fill="#25D366"/><path d="M36 28v8" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><circle cx="36" cy="28" r="2" fill="#fff"/></svg>
+    ),
+  },
+  {
+    title: 'Connect Your Channels',
+    description: 'Integrate with WhatsApp, Slack, Facebook Messenger and other platforms in just a few clicks. Get verified and ready to go instantly.',
+    svg: (
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="36" fill="#e6f9ee"/><g><circle cx="36" cy="36" r="22" fill="#25D366"/><path d="M45.5 30.5c-1-2-3.5-3.5-7-3.5-5 0-9 3.5-9 8 0 2.5 1.5 4.5 3.5 6l-1 3 3-1c1.5 1 3.5 1.5 5.5 1.5 5 0 9-3.5 9-8 0-1-.5-2-1-3" fill="#fff"/></g></svg>
     ),
   },
   {
