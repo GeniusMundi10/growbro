@@ -16,7 +16,6 @@ const navLinks = [
     children: [
       { 
         name: 'Products', 
-        path: '/products',
         children: products
       },
       { name: 'Usecases', path: '/use-cases' }
@@ -146,19 +145,17 @@ export default function Navbar() {
 
   // Toggle submenu on click for touch devices
   const handleSubmenuClick = (idx, e) => {
-    if (isMobileView || window.innerWidth < 900) {
-      e.preventDefault();
-      e.stopPropagation(); // Prevent event bubbling on mobile
-      
-      // Close any other open submenu first
-      if (activeSubmenu !== null && activeSubmenu !== idx) {
-        setActiveSubmenu(null);
-        setTimeout(() => {
-          setActiveSubmenu(idx);
-        }, 10);
-      } else {
-        setActiveSubmenu(activeSubmenu === idx ? null : idx);
-      }
+    e.preventDefault();
+    e.stopPropagation(); // Prevent event bubbling
+    
+    // Close any other open submenu first
+    if (activeSubmenu !== null && activeSubmenu !== idx) {
+      setActiveSubmenu(null);
+      setTimeout(() => {
+        setActiveSubmenu(idx);
+      }, 10);
+    } else {
+      setActiveSubmenu(activeSubmenu === idx ? null : idx);
     }
   };
   
@@ -267,7 +264,7 @@ export default function Navbar() {
                         key={child.name}
                         ref={el => submenuRefs.current[getUniqueSubKey(idx, cidx)] = el}
                         className={`dropdown-item-wrapper ${activeSubmenu === getUniqueSubKey(idx, cidx) ? 'active' : ''}`}
-                        onClick={(e) => child.path ? null : handleSubmenuClick(getUniqueSubKey(idx, cidx), e)}
+                        onClick={(e) => handleSubmenuClick(getUniqueSubKey(idx, cidx), e)}
                         onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                         onMouseLeave={handleSubmenuMouseLeave}
                         tabIndex={0}
