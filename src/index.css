@@ -982,9 +982,19 @@ code {
   gap: 2.5rem;
   justify-content: center;
 }
-@media (min-width: 700px) {
+@media (min-width: 700px) and (max-width: 1199px) {
   .howitworks-steps {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .howitworks-steps {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 .howitworks-step {
