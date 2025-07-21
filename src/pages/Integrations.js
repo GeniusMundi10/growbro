@@ -59,21 +59,21 @@ function Integrations() {
     {
       id: 6,
       name: 'Zapier',
-      icon: 'https://cdn.zapier.com/zapier/images/logos/zapier-logo.svg',
+      icon: process.env.PUBLIC_URL + '/images/integrations/zapier-logo.svg',
       description: 'Connect Growbro to thousands of apps with Zapier. Automate customer support workflows, lead management, and notifications—no coding needed.',
       tags: ['CRM']
     },
     {
       id: 7,
       name: 'Twilio',
-      icon: 'https://www.twilio.com/assets/icons/twilio-icon-512-red.png',
+      icon: process.env.PUBLIC_URL + '/images/integrations/twilio-logo.svg',
       description: 'Set up SMS alerts by integrating Growbro with Twilio via Zapier. Receive instant notifications of new live chat requests to your phone for faster response.',
       tags: ['Channel Integration', 'Phone Call']
     },
     {
       id: 8,
       name: 'Freshdesk',
-      icon: 'https://freshdesk.com/static-assets/images/common/company/logos/logo-freshdesk.svg',
+      icon: process.env.PUBLIC_URL + '/images/integrations/freshdesk-logo.svg',
       description: 'Connect Growbro to Freshdesk to automatically create support tickets when chatbot queries are escalated. Streamline human support.',
       tags: ['Helpdesk']
     },
