@@ -256,7 +256,7 @@ export default function Navbar() {
                   className={`dropdown-menu ${activeDropdown === idx ? 'visible' : ''}`}
                   onMouseEnter={() => handleDropdownMouseEnter(idx)}
                   onMouseLeave={handleDropdownMouseLeave}
-                  style={isMobileView && activeDropdown === idx ? {opacity: 1, display: 'block'} : {}}
+                  style={isMobileView && activeDropdown === idx ? {opacity: 1, display: 'block', width: '100%', boxSizing: 'border-box', overflow: 'visible'} : {}}
                 >
                   {link.children.map((child, cidx) =>
                     child.children ? (
@@ -284,7 +284,7 @@ export default function Navbar() {
                           onMouseEnter={() => handleSubmenuMouseEnter(getUniqueSubKey(idx, cidx))}
                           onMouseLeave={handleSubmenuMouseLeave}
                           style={activeSubmenu === getUniqueSubKey(idx, cidx) ? 
-                            (isMobileView ? {opacity: 1, display: 'block', maxHeight: '300px'} : {}) : 
+                            (isMobileView ? {opacity: 1, display: 'block', maxHeight: '300px', width: '100%', left: 0, position: 'static', margin: 0, padding: 0} : {}) : 
                             {display: 'none'}}
                         >
                           {child.children.map(sub => (
