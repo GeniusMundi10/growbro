@@ -7,6 +7,7 @@ import FeatureIconAnalytics from '../components/FeatureIconAnalytics';
 import FeatureIconGlobe from '../components/FeatureIconGlobe';
 import FeatureIconShield from '../components/FeatureIconShield';
 import HeroSection from '../components/HeroSection';
+import VideoSection from '../components/VideoSection';
 import StepsSection from '../components/StepsSection';
 import TrainAISection from '../components/TrainAISection';
 import CustomizeAISection from '../components/CustomizeAISection';
@@ -27,12 +28,16 @@ import '../components/IntegrationsSection.css';
 import '../components/FAQSection.css';
 import '../components/CTASection.css';
 import '../components/StepsSection.css';
+import '../components/VideoSection.css';
 
 export default function Home() {
   return (
     <>
       {/* Hero Section (Wonderchat-style) */}
       <HeroSection />
+
+      {/* Video Demo Section (Crisp-style) */}
+      <VideoSection />
 
       {/* 3-Steps Section (Growbro-style) */}
       <StepsSection />
@@ -57,20 +62,6 @@ export default function Home() {
 
       {/* Integrations Section (GrowBro-style) */}
       <IntegrationsSection />
-
-      {/* Premium Video Section - Plivo Style */}
-      <section className="promo-video-section">
-        <div className="video-container promo-video-wrapper">
-          <iframe
-            src="https://player.vimeo.com/video/1076991274?autoplay=0&title=0&byline=0&portrait=0"
-            title="Growbro WhatsApp AI Demo Video"
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            className="promo-video-iframe video-responsive"
-          ></iframe>
-        </div>
-      </section>
 
       {/* Features Overview Section */}
       <section className="section" style={{ background: 'linear-gradient(90deg, #f0fdf4 0%, #fff 100%)' }}>
