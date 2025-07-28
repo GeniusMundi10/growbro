@@ -59,7 +59,19 @@
 .footer-columns {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .footer-columns {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-columns {
+    gap: 0.5rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -93,6 +105,21 @@
   text-decoration: none;
   margin-bottom: 0.75rem;
   display: inline-block;
+  word-break: break-word;
+  line-height: 1.1;
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 1.15rem;
+    display: block;
+    white-space: pre-line;
+    letter-spacing: 0.01em;
+  }
+  .footer-logo .logo-green,
+  .footer-logo .logo-light {
+    display: inline;
+  }
 }
 
 .logo-green {
