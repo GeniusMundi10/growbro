@@ -111,14 +111,18 @@
 
 @media (max-width: 480px) {
   .footer-logo {
-    font-size: 1.15rem;
-    display: block;
-    white-space: pre-line;
-    letter-spacing: 0.01em;
+    font-size: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    padding: 0.15em 0.25em;
+    line-height: 1.2;
   }
   .footer-logo .logo-green,
   .footer-logo .logo-light {
     display: inline;
+    padding: 0 1px;
+    word-break: keep-all;
   }
 }
 
