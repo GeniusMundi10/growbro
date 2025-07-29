@@ -1,7 +1,7 @@
 /* Modern Footer Styles for Growbro - Watermelon Inspired */
 
 .footer-modern {
-  background-color: #1a0f0d; /* Dark brown background like Watermelon */
+  background-color: #10281A; /* Deep dark green */
   color: #e2e8f0;
   font-family: 'Inter', sans-serif;
   margin-top: 4rem;
@@ -107,9 +107,19 @@
   display: inline-block;
   word-break: break-word;
   line-height: 1.1;
+  color: #fff !important;
+}
+.footer-logo .logo-green, .footer-logo .logo-dark {
+  color: #fff !important;
+}
+.footer-logo svg {
+  filter: brightness(100) grayscale(1) invert(1);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .footer-content {
+    padding: 2rem 0 1.5rem;
+  }
   .footer-logo {
     font-size: 1rem;
     display: inline-block;
@@ -124,7 +134,31 @@
     padding: 0 1px;
     word-break: keep-all;
   }
+  .footer-branding {
+    margin-bottom: 1.2rem;
+    gap: 0.5rem;
+  }
+  .footer-columns {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .footer-column {
+    width: 100% !important;
+    margin-bottom: 1.2rem;
+  }
+  .footer-column-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+  }
+  .footer-links li a, .contact-item {
+    font-size: 0.92rem;
+    padding: 0.3em 0;
+  }
+  .footer-social-contact {
+    gap: 0.8rem;
+  }
 }
+
 
 .logo-green {
   color: #10b981;
@@ -137,7 +171,7 @@
 .footer-description {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #94a3b8;
+  color: #b6e3c5;
   margin-bottom: 1.5rem;
   max-width: 300px;
 }
@@ -169,7 +203,7 @@
 .footer-column-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #b6e3c5;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -185,14 +219,15 @@
 }
 
 .footer-links li a {
-  color: #94a3b8;
+  color: #e2e8f0;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s ease;
 }
 
 .footer-links li a:hover {
-  color: #10b981;
+  color: #b6e3c5;
+  text-decoration: underline;
 }
 
 /* Contact Column */
@@ -259,7 +294,7 @@
 
 /* Footer Bottom */
 .footer-bottom {
-  background-color: #120a09; /* Slightly darker than main footer */
+  background-color: #1B3D2F; /* Slightly darker green than main */
   padding: 1.5rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AnimatedLogoSprout from './AnimatedLogoSprout';
 import './FooterModern.css';
 
 export default function Footer() {
@@ -9,11 +10,12 @@ export default function Footer() {
         <div className="footer-container">
           {/* Logo and company info */}
           <div className="footer-branding">
-            <Link to="/" className="footer-logo">
-              <span className="logo-green">grow</span>
-              <span className="logo-light">bro</span>
-              <span className="logo-green">.ai</span>
-            </Link>
+  <Link to="/" className="footer-logo" style={{display:'flex',alignItems:'center',gap:'0.6em'}}>
+    <AnimatedLogoSprout size={32} />
+    <span>
+      <span className="logo-green">growbro</span><span className="logo-dark">.ai</span>
+    </span>
+  </Link>
             <p className="footer-description">
               Build AI agents trained on your data, no coding required.
             </p>
